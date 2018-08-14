@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolHeight"
+        android:background="@color/nav_bg"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="巡逻上报"
+            android:textColor="@color/nav_title"
+            android:textSize="@dimen/nav_title" />
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/x20"
+                android:background="#f1f1f1"
+                android:text="文字描述"
+                android:textColor="#333"
+                android:textSize="@dimen/x30"/>
+
+            <EditText
+                android:id="@+id/et_words"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入隐患描述"
+                android:maxLines="4"
+                android:lines="4"
+                android:gravity="top"
+                android:padding="@dimen/x20"
+                android:textColor="#333"
+                android:textSize="@dimen/x30"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/x20"
+                android:background="#f1f1f1"
+                android:text="附件"
+                android:textColor="#333"
+                android:textSize="@dimen/x30"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

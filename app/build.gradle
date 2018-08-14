@@ -1,0 +1,137 @@
+apply plugin: 'com.android.application'
+apply plugin: 'packer'
+
+def debugMinifiy = true
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    defaultConfig {
+        applicationId "com.git.reny.patrol"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        resConfigs "zh"
+
+    }
+    signingConfigs {
+        debug {
+            // No debug config
+            v2SigningEnabled true
+            storeFile file("patrol.jks")
+            storePassword "patrol.reny.com"
+            keyAlias "patrol.jks"
+            keyPassword "patrol.reny.com"
+        }
+
+        release {
+            v2SigningEnabled true
+            storeFile file("patrol.jks")
+            storePassword "patrol.reny.com"
+            keyAlias "patrol.jks"
+            keyPassword "patrol.reny.com"
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            versionNameSuffix "-debug"
+            minifyEnabled debugMinifiy
+            zipAlignEnabled debugMinifiy
+            shrinkResources debugMinifiy
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled true
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+packer {
+    // 指定渠道打包输出文件名格式 https://github.com/mcxiaoke/packer-ng-plugin
+    archiveNameFormat = '${channel}_${versionCode}_patrol'
+    // 指定渠道打包输出目录
+    archiveOutput = new File(project.rootProject.buildDir, "apks")
+    channelFile = new File(project.rootDir, "channels/channels.txt")
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    annotationProcessor('com.jakewharton:butterknife-compiler:8.8.1') {
+        exclude module: 'support-annotations'
+    }
+
+    implementation 'com.mcxiaoke.packer-ng:helper:2.0.1'
+    implementation project(':mvplib')
+
+    //永不crash
+    implementation 'com.wanjian:cockroach:0.0.5'
+
+    //友盟统计
+    implementation 'com.umeng.analytics:analytics:latest.integration'
+
+    //下载文件库
+    implementation 'com.liulishuo.filedownloader:library:1.7.4'
+
+    //圆形进度条（https://github.com/lzyzsd/CircleProgress）
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+
+    //让glide用okhttp3加载图片
+    implementation "com.github.bumptech.glide:okhttp3-integration:4.7.1"
+
+    //cookie管理
+    implementation('com.github.franmontiel:PersistentCookieJar:v1.0.0') {
+        exclude module: 'okhttp'
+    }
+
+    //滑动退出activity
+    implementation 'com.jude:swipebackhelper:3.1.2'
+
+    //状态栏相关库
+    implementation 'com.jaeger.statusbarutil:library:1.4.0'
+
+    //adapter
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+
+    //Tab
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
+    //圆形图片
+    //implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    //圆角矩形
+    implementation 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
+
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+    implementation 'cjt.library.wheel:camera:1.1.9'
+
+    implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-alpha-1'
+}

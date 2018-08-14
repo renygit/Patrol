@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/welcome_bg" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/tv_leftTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/x50"
+        android:layout_marginTop="@dimen/y80"
+        android:paddingBottom="@dimen/y15"
+        android:paddingLeft="@dimen/x40"
+        android:paddingRight="@dimen/x40"
+        android:paddingTop="@dimen/y15"
+        android:text="跳过3s"
+        android:textColor="#fff"
+        android:textSize="@dimen/x34"
+        android:visibility="gone"
+        app:rv_backgroundColor="#88000000"
+        app:rv_backgroundPressColor="#55000000"
+        app:rv_isRadiusHalfHeight="true"
+        app:rv_isRippleEnable="true" />
+
+
+</RelativeLayout>

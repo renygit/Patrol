@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolHeight">@dimen/y145</dimen>
+    <dimen name="line">@dimen/y1</dimen>
+    <dimen name="compat_inset_shadow">1dp</dimen>
+    <dimen name="status_bar_height">0dp</dimen>
+
+    <dimen name="nav_title">@dimen/x46</dimen>
+    <dimen name="nav_sub_title">@dimen/x28</dimen>
+
+
+    <dimen name="btn_round_height">@dimen/y114</dimen>
+    <dimen name="btn_round_height_big">@dimen/y120</dimen>
+
+    <dimen name="radio_wh">@dimen/x110</dimen>
+
+    <dimen name="radio_wh_year">@dimen/x90</dimen>
+    <dimen name="radio_wh_year_half">@dimen/x45</dimen>
+</resources>

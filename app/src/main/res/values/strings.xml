@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">巡检卫士</string>
+    <string name="request_error">网络访问出错，请检查网络后重试</string>
+    <string name="permissions_miss">缺少相关权限</string>
+
+    <string-array name="homeOptionTitles">
+        <item>考勤打卡</item>
+        <item>隐患上报</item>
+        <item>上报记录</item>
+        <item>意见反馈</item>
+        <item>清除缓存</item>
+        <item>检查更新</item>
+        <item>巡检计划</item>
+        <item>修改密码</item>
+        <item>退出登录</item>
+    </string-array>
+
+
+    <string name="format2decimal">%.2f</string>
+    <string name="permissionChooseImg">请开启选择图片需要的相应权限</string>
+    <string name="login_name">用户名</string>
+    <string name="login_pass">密    码</string>
+    <string name="login_button">登录</string>
+
+</resources>

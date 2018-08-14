@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme">#67a0ee</color>
+    <color name="default_bg">#ffffff</color>
+
+    <color name="colorPrimary">@color/theme</color>
+    <color name="colorPrimaryDark">@color/theme</color>
+    <color name="colorAccent">@color/theme</color>
+
+    <color name="pic_selector_theme">@color/theme</color>
+
+    <color name="nav_bg">@color/theme</color>
+    <color name="nav_title">#fff</color>
+    <color name="line">#e3e3e3</color>
+
+    <color name="whiteClick">#20000000</color>
+    <color name="themeClick">#3384f2</color>
+
+
+    <color name="dot_tip_red">#f15f5f</color>
+
+    <color name="rise">#ef6868</color>
+    <color name="fall">#64b17d</color>
+
+
+    <color name="validate_yes">#56c94d</color>
+    <color name="validate_no">#ef6767</color>
+
+    <color name="market_bg_top">@color/theme</color>
+    <color name="market_bg_bot">#7784f7</color>
+    <color name="market_bg_bot_shader">#887784f7</color>
+
+    <color name="color3">#333</color>
+    <color name="color6">#666</color>
+    <color name="color9">#999</color>
+    <color name="colorf1">#f1f1f1</color>
+    <color name="color34">#343434</color>
+
+
+    <color name="roll_point_hint_n">#dddedb</color>
+    <color name="roll_point_hint_p">#679fef</color>
+
+    <color name="white">#fff</color>
+
+</resources>

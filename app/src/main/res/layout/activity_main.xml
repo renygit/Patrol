@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolHeight"
+        android:background="@color/nav_bg"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/nav_title"
+            android:textSize="@dimen/nav_title" />
+    </android.support.v7.widget.Toolbar>
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/waveHeader"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="@dimen/y50"
+        android:scaleY="1"
+        app:mwhVelocity="0.3"
+        app:mwhProgress="1"
+        app:mwhGradientAngle="45"
+        app:mwhWaveHeight="20dp"
+        app:mwhColorAlpha="0.9"
+        app:mwhStartColor="@color/colorPrimaryDark"
+        app:mwhCloseColor="#5567a0ee"
+        app:mwhWaves="MultiWave" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

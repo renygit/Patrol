@@ -1,0 +1,27 @@
+ext {
+
+    android = [
+            compileSdkVersion       : 27,
+            minSdkVersion           : 15,
+            targetSdkVersion        : 27,
+            versionCode             : 1,
+            versionName             : "0.0.1",
+            supportVersion          : "27.1.1"
+    ]
+
+    dependencies = [
+            //view
+            "photoview"                : "com.github.chrisbanes:PhotoView:2.0.0",
+            "nineoldandroids"          : "com.nineoldandroids:library:2.4.0",
+
+            //tools
+            "glide"                    : "com.github.bumptech.glide:glide:3.7.0",
+            "eventbus"                 : "org.greenrobot:eventbus:3.0.0",
+            "multidex"                 : "com.android.support:multidex:1.0.1",
+
+            //test
+            "umeng-analytics"          : "com.umeng.analytics:analytics:latest.integration"
+        ]
+
+
+}
