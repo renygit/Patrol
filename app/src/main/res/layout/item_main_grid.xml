@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bg_white_selector"
-    android:layout_marginTop="@dimen/y30"
-    android:layout_marginBottom="@dimen/y30"
+    android:paddingTop="@dimen/y30"
+    android:paddingBottom="@dimen/y30"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 

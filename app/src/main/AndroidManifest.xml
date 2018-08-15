@@ -88,6 +88,10 @@
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:theme="@style/TranslucentTheme" />
 
+        <activity
+            android:name=".ui.activity.UploadFilesActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden" />
+
 
         <service android:name=".service.UpdateService" />
 

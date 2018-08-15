@@ -80,58 +80,44 @@ packer {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:cardview-v7:${rootProject.ext.android["supportVersion"]}"
     annotationProcessor('com.jakewharton:butterknife-compiler:8.8.1') {
         exclude module: 'support-annotations'
     }
-
     implementation 'com.mcxiaoke.packer-ng:helper:2.0.1'
     implementation project(':mvplib')
-
     //永不crash
     implementation 'com.wanjian:cockroach:0.0.5'
-
     //友盟统计
     implementation 'com.umeng.analytics:analytics:latest.integration'
-
     //下载文件库
     implementation 'com.liulishuo.filedownloader:library:1.7.4'
-
     //圆形进度条（https://github.com/lzyzsd/CircleProgress）
     implementation 'com.github.lzyzsd:circleprogress:1.2.1'
-
     //glide
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-
     //让glide用okhttp3加载图片
-    implementation "com.github.bumptech.glide:okhttp3-integration:4.7.1"
-
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.7.1'
     //cookie管理
     implementation('com.github.franmontiel:PersistentCookieJar:v1.0.0') {
         exclude module: 'okhttp'
     }
-
     //滑动退出activity
     implementation 'com.jude:swipebackhelper:3.1.2'
-
     //状态栏相关库
     implementation 'com.jaeger.statusbarutil:library:1.4.0'
-
     //adapter
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-
     //Tab
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
-
     //圆形图片
     //implementation 'de.hdodenhof:circleimageview:2.2.0'
-
     //圆角矩形
     implementation 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
-
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
     implementation 'cjt.library.wheel:camera:1.1.9'
-
     implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-alpha-1'
+
 }

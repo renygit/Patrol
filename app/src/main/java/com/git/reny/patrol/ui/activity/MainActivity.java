@@ -1,5 +1,6 @@
 package com.git.reny.patrol.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -56,11 +57,12 @@ public class MainActivity extends BaseActivity {
             list.add(new MainGridBean(mipmapIds[i], homeOptionTitles[i]));
         }
         MainGridAdapter adapter = new MainGridAdapter(R.layout.item_main_grid, list);
-        adapter.setOnItemChildClickListener((adapter1, view, position) -> {
+        adapter.setOnItemClickListener((adapter1, view, position) -> {
             switch (position){
                 case 0:
                     break;
                 case 1:
+                    startActivity(new Intent(getActivity(), UploadFilesActivity.class));
                     break;
                 case 2:
                     break;
