@@ -28,8 +28,8 @@ public class MainGridAdapter extends BaseQuickAdapter<MainGridBean, BaseViewHold
             R.drawable.item_grid_9
     };
 
-    public MainGridAdapter(int layoutResId, @Nullable List<MainGridBean> data) {
-        super(layoutResId, data);
+    public MainGridAdapter(@Nullable List<MainGridBean> data) {
+        super(R.layout.item_main_grid, data);
     }
 
     @Override

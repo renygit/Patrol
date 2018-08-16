@@ -28,8 +28,8 @@ public class WelcomeActivity extends BaseActivity {
 
     @BindView(R.id.iv)
     ImageView iv;
-    @BindView(R.id.tv_leftTime)
-    RoundTextView tvLeftTime;
+    /*@BindView(R.id.tv_leftTime)
+    RoundTextView tvLeftTime;*/
 
     private int jumpTime = 3;//闪屏时间 秒
 
@@ -80,7 +80,10 @@ public class WelcomeActivity extends BaseActivity {
     }
 
     private void start() {
-        tvLeftTime.setVisibility(View.VISIBLE);
+        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+        startActivity(new Intent(getActivity(), MainActivity.class));
+        finish();
+        /*tvLeftTime.setVisibility(View.VISIBLE);
         tvLeftTime.setText("跳过" + jumpTime + "s");
         CommonUtils.delayRun(presenter, jumpTime, 1, () -> {
             --jumpTime;
@@ -88,13 +91,13 @@ public class WelcomeActivity extends BaseActivity {
             if(jumpTime == 0){
                 onClick();
             }
-        });
+        });*/
     }
 
-    @OnClick(R.id.tv_leftTime)
+    /*@OnClick(R.id.tv_leftTime)
     public void onClick() {
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         startActivity(new Intent(getActivity(), MainActivity.class));
         finish();
-    }
+    }*/
 }

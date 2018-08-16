@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
         for (int i = 0; i < homeOptionTitles.length; i++) {
             list.add(new MainGridBean(mipmapIds[i], homeOptionTitles[i]));
         }
-        MainGridAdapter adapter = new MainGridAdapter(R.layout.item_main_grid, list);
+        MainGridAdapter adapter = new MainGridAdapter(list);
         adapter.setOnItemClickListener((adapter1, view, position) -> {
             switch (position){
                 case 0:
