@@ -7,9 +7,7 @@ package com.git.reny.patrol.core;
 public class ResultException extends RuntimeException {
 
     public static final int SUCCESSCODE = 0;
-    public static final int LOGIN_OVERDUE = 5;
-    public static final int SERVICE_ERROR = 11;
-    public static final int COMMANDNAME_ERROR = 6;
+    public static final int SERVICE_ERROR = 500;
     public static final int UNKNOWNERROR = 9999;//自定义错误码
 
     private int code;

@@ -1,6 +1,6 @@
 package com.git.reny.patrol.api;
 
-import com.git.reny.patrol.entity.response.UpdateResult;
+import com.git.reny.patrol.entity.response.Test;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -13,10 +13,9 @@ public interface ApiService {
 
     //BaseServiceFactory->createService() 获取属性为BASE_URL的值
     String BASE_URL = APIConfig.BASE_URL_DEFAULT;
-    /**
-     * 更新
-     */
-    @GET("config/config_chart.json")
-    Observable<UpdateResult> getUpdateResult();
+
+
+    @GET("books")
+    Observable<Test> getBooks();
 
 }

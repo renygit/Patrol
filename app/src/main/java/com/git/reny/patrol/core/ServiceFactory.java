@@ -36,16 +36,6 @@ public class ServiceFactory<S> extends BaseServiceFactory<S> {
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); // 指定缓存大小100Mb
         clientBuilder.cache(cache);
 
-        /*InputStream keyStore = MyApplication.getContext().getResources().openRawResource(BuildConfig.DEBUG ? R.raw.zyctdw_debug : R.raw.zyctdw);
-        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, keyStore, "zyctdw");
-        clientBuilder.hostnameVerifier(new HostnameVerifier() {
-            @Override
-            public boolean verify(String hostname, SSLSession session) {
-                return true;
-            }
-        });
-        clientBuilder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);*/
-
         clientBuilder.addNetworkInterceptor(new MyNetInterceptor());
 
         return clientBuilder.build();
@@ -58,16 +48,6 @@ public class ServiceFactory<S> extends BaseServiceFactory<S> {
     public static ServiceFactory getInstance() {
         return SingletonHolder.INSTANCE;
     }
-
-    /*@Override
-    public void setClientBuilder(OkHttpClient.Builder clientBuilder) {
-        clientBuilder.cookieJar(SingletonUtils.cookieJar);
-        File cacheFile = new File(SingletonUtils.cacheDir, "HttpCache"); // 指定缓存路径
-        Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); // 指定缓存大小100Mb
-        clientBuilder.cache(cache);
-
-        clientBuilder.addNetworkInterceptor(new MyNetInterceptor());
-    }*/
 
     @Override
     public String getDefaultBaseUrl() {
