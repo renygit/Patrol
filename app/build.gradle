@@ -6,7 +6,7 @@ def debugMinifiy = true
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     defaultConfig {
-        applicationId "com.git.reny.patrol"
+        applicationId "com.git.reny.wallpaper"
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]
@@ -87,6 +87,8 @@ dependencies {
     }
     implementation 'com.mcxiaoke.packer-ng:helper:2.0.1'
     implementation project(':mvplib')
+    implementation project(':scrolltoplib')
+    implementation project(':LayoutManagerGroup')
     //永不crash
     implementation 'com.wanjian:cockroach:0.0.5'
     //友盟统计
@@ -107,7 +109,7 @@ dependencies {
     //滑动退出activity
     implementation 'com.jude:swipebackhelper:3.1.2'
     //状态栏相关库
-    implementation 'com.jaeger.statusbarutil:library:1.4.0'
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
     //adapter
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     //Tab
@@ -118,6 +120,8 @@ dependencies {
     implementation 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
     implementation 'cjt.library.wheel:camera:1.1.9'
-    implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-alpha-1'
+    //implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-alpha-1'
+
+    implementation 'com.xw.repo:xedittext:2.2.1@aar'
 
 }

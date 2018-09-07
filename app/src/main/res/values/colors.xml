@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="theme">#67a0ee</color>
+    <color name="theme">#4e498b</color>
     <color name="default_bg">#ffffff</color>
 
     <color name="colorPrimary">@color/theme</color>

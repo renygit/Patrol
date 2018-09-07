@@ -6,4 +6,7 @@
 
     <string name="SaveVersion">SaveVersion</string>
     <string name="SplashData">SplashData</string>
+
+
+    <string name="CategoryStyle">CategoryStyle</string>
 </resources>

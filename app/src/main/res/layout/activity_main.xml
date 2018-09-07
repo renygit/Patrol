@@ -6,39 +6,39 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolHeight"
         android:background="@color/nav_bg"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ToolBarPopTheme"
+        android:navigationIcon="@mipmap/ic_search_white"
+        app:navigationIcon="@mipmap/ic_search_white"
         app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp">
 
-        <TextView
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/segment"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/y90"
             android:layout_gravity="center"
-            android:text="@string/app_name"
-            android:textColor="@color/nav_title"
-            android:textSize="@dimen/nav_title" />
+            app:tl_bar_color="@color/nav_bg"
+            app:tl_bar_stroke_color="#fff"
+            app:tl_indicator_anim_enable="true"
+            app:tl_indicator_bounce_enable="false"
+            app:tl_indicator_color="#fff"
+            app:tl_tab_padding="@dimen/x40"
+            app:tl_textSelectColor="@color/nav_bg"
+            app:tl_textUnselectColor="#fff"
+            app:tl_textsize="@dimen/x38" />
+
     </android.support.v7.widget.Toolbar>
 
-    <com.scwang.wave.MultiWaveHeader
-        android:id="@+id/waveHeader"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginBottom="@dimen/y50"
-        android:scaleY="1"
-        app:mwhVelocity="0.3"
-        app:mwhProgress="1"
-        app:mwhGradientAngle="45"
-        app:mwhWaveHeight="20dp"
-        app:mwhColorAlpha="0.9"
-        app:mwhStartColor="@color/colorPrimaryDark"
-        app:mwhCloseColor="#5567a0ee"
-        app:mwhWaves="MultiWave" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv"
+    <com.git.reny.wallpaper.widget.SViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
 </LinearLayout>

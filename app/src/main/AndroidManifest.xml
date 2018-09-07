@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.git.reny.patrol">
+    package="com.git.reny.wallpaper">
 
     <!-- Optional for location -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
@@ -32,7 +32,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
-        android:name=".MyApp"
+        android:name="com.git.reny.wallpaper.MyApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -42,7 +42,7 @@
         tools:replace="android:allowBackup,android:theme">
 
         <activity
-            android:name=".ui.activity.WelcomeActivity"
+            android:name="com.git.reny.wallpaper.ui.activity.WelcomeActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppStartTheme">
@@ -55,14 +55,14 @@
 
         <!--登录-->
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name="com.git.reny.wallpaper.ui.activity.LoginActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="com.git.reny.wallpaper.ui.activity.MainActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -84,20 +84,20 @@
         </activity>
 
         <activity
-            android:name=".ui.activity.UpdateActivity"
+            android:name="com.git.reny.wallpaper.ui.activity.UpdateActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:theme="@style/TranslucentTheme" />
 
         <activity
-            android:name=".ui.activity.UploadFilesActivity"
+            android:name="com.git.reny.wallpaper.ui.activity.SearchActivity"
             android:configChanges="orientation|keyboard|keyboardHidden" />
 
 
-        <service android:name=".service.UpdateService" />
+        <service android:name="com.git.reny.wallpaper.service.UpdateService" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.git.reny.patrol.fileprovider"
+            android:authorities="com.git.reny.wallpaper.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

@@ -123,7 +123,7 @@
 
 #############
 #下面中括号的地方需要要填你的包名
--keep public class com.git.reny.patrol.R$*{
+-keep public class com.git.reny.wallpaper.R$*{
     public static final int *;
 }
 -keepclassmembers class * {
@@ -150,11 +150,11 @@
 }
 #----------------------------------------------------------------------------
 
--keep class com.git.reny.patrol.core.**
+-keep class com.git.reny.wallpaper.core.**
 
 #---------------------------------实体类---------------------------------
--keep public class com.git.reny.patrol.entity.** {*;}
--keep interface com.git.reny.patrol.api.** { *; }
+-keep public class com.git.reny.wallpaper.entity.** {*;}
+-keep interface com.git.reny.wallpaper.api.** { *; }
 #----------------------------------------------------------------------------
 
 #---别人加的第三方库混淆-----------#############################
@@ -798,4 +798,4 @@ public static final ** CREATOR;
 -keep class com.just.library.** {*;}
 -dontwarn com.just.library.**
 
--keep class com.git.reny.patrol.widget.webview.JsInterface {*;}
+-keep class com.git.reny.wallpaper.widget.webview.JsInterface {*;}
