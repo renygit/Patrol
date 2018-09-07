@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/toolBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolHeight"
+        android:background="@color/theme"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ToolBarPopTheme">
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/y20"
+            android:layout_marginRight="@dimen/x40"
+            android:layout_marginBottom="@dimen/y20"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:rv_isRadiusHalfHeight="true"
+            app:rv_backgroundColor="#33000000">
+
+            <com.xw.repo.XEditText
+                android:id="@+id/et_key_word"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/x36"
+                android:background="@null"
+                android:hint="请输入关键字搜索"
+                android:imeOptions="actionSearch"
+                android:lines="1"
+                android:singleLine="true"
+                android:textColorHint="#99ffffff"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x36"
+                app:x_clearDrawable="@mipmap/ic_search_clear_white" />
+
+            <ImageView
+                android:id="@+id/tv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="@dimen/x20"
+                android:paddingRight="@dimen/x35"
+                android:src="@mipmap/ic_search_white"/>
+        </com.flyco.roundview.RoundLinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/x20">
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

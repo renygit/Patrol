@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/x20">
+
+    <com.git.reny.wallpaper.widget.RatioImageView
+        android:id="@+id/iv_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:base="width"
+        app:height_ratio="3"
+        app:width_ratio="2" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/tv_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="@dimen/x20"
+        android:singleLine="true"
+        android:textColor="#fff"
+        android:textSize="@dimen/x36"
+        app:rv_backgroundColor="#22000000"
+        app:rv_cornerRadius_BL="@dimen/x20"
+        app:rv_cornerRadius_BR="@dimen/x20" />
+
+</RelativeLayout>
