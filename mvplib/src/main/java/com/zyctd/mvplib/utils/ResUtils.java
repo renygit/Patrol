@@ -1,4 +1,4 @@
-package com.git.reny.wallpaper.utils;
+package com.zyctd.mvplib.utils;
 
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
@@ -7,8 +7,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
-
-import com.zyctd.mvplib.utils.AppUtils;
 
 /**
  * Created by reny on 2017/5/8.

@@ -1,39 +1,39 @@
 package com.git.reny.wallpaper.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 
+import com.flyco.tablayout.SlidingTabLayout;
 import com.git.reny.wallpaper.R;
 import com.git.reny.wallpaper.core.BaseFragment;
-import com.git.reny.wallpaper.entity.response.ImgListData;
+import com.git.reny.wallpaper.entity.response.ListResults;
 import com.git.reny.wallpaper.presenter.HomePresenter;
-import com.git.reny.wallpaper.ui.adapter.HomeListAdapter;
+import com.git.reny.wallpaper.ui.adapter.TabPagerAdapter;
 import com.git.reny.wallpaper.ui.mvp.HomeView;
-import com.git.reny.wallpaper.utils.CommonUtils;
 import com.renygit.multistateview.MultiStateView;
-import com.renygit.scrolltoplib.AutoScrollBackLayout;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
 public class HomeFragment extends BaseFragment<HomePresenter> implements HomeView {
 
-    @BindView(R.id.rv)
-    RecyclerView rv;
-    @BindView(R.id.scroll_layout)
-    AutoScrollBackLayout scrollLayout;
-    @BindView(R.id.srl)
-    SmartRefreshLayout srl;
+    @BindView(R.id.stl)
+    SlidingTabLayout stl;
+    @BindView(R.id.vp)
+    ViewPager vp;
     @BindView(R.id.msv)
     MultiStateView msv;
-
-    private HomeListAdapter adapter;
 
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_home;
+    }
+
+    public MultiStateView getMultiStateView() {
+        return msv;
     }
 
     @Override
@@ -42,21 +42,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeVie
     }
 
     @Override
-    protected MultiStateView getMultiStateView() {
-        return msv;
-    }
-
-    @Override
-    protected RefreshLayout getRefreshLayout() {
-        return srl;
-    }
-
-    @Override
-    protected void init(Bundle bundle) {
-        scrollLayout.bindScrollBack();
-        CommonUtils.initRecyclerView(rv, new GridLayoutManager(getActivity(), 3));
-    }
-
+    protected void init(Bundle bundle) {}
 
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {
@@ -64,17 +50,19 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeVie
     }
 
     @Override
-    public void setData(boolean isRefresh, ImgListData data) {
-        if(null == adapter){
-            adapter = new HomeListAdapter(data.getListData());
-            rv.setAdapter(adapter);
-        }else {
-            if(isRefresh) {
-                adapter.setNewData(data.getListData());
-                rv.scrollToPosition(0);
-            }else {
-                adapter.addData(data.getListData());
-            }
+    public void setData(boolean isRefresh, ListResults data) {
+        List<String> titles = data.getListData();
+        titles.add(0, "推荐");
+        List<Fragment> fragmentList = new ArrayList<>(titles.size());
+        fragmentList.add(new HomeTjFragment());
+        for (int i = 1; i < data.getListData().size(); i++) {//i从1开始  因为在前面加了一个 推荐页
+            fragmentList.add(HomeOtherFragment.newInstance().setCategory(titles.get(i)));
         }
+
+        vp.setAdapter(new TabPagerAdapter(getChildFragmentManager(), fragmentList, titles.toArray(new String[0])));
+        vp.setCurrentItem(0);
+        vp.setOffscreenPageLimit(titles.size());
+        stl.setViewPager(vp);
+        stl.onPageSelected(0);
     }
 }

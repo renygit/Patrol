@@ -52,14 +52,13 @@
         <item name="contentInsetStartWithNavigation">0dp</item>
     </style>
 
-
     <style name="cardViewStyle" parent="@style/CardView.Light">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="cardPreventCornerOverlap">false</item>
         <item name="cardUseCompatPadding">true</item>
-        <item name="cardCornerRadius">3dp</item>
-        <item name="cardElevation">1dp</item>
+        <item name="cardCornerRadius">0dp</item>
+        <item name="cardElevation">0dp</item>
         <item name="android:foreground">@drawable/card_foreground</item>
     </style>
 

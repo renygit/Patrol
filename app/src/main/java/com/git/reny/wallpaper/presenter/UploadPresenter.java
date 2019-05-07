@@ -39,7 +39,7 @@ public class UploadPresenter extends BasePresenter<UploadView> {
 
                             @Override
                             public void onErr(Throwable e) {
-                                AppUtils.self().showToast(e.getMessage());
+                                ToastUtils.showLong(e.getMessage());
 //                        LogUtils.e(TAG + ":" + e.getMessage());
                             }
                         })

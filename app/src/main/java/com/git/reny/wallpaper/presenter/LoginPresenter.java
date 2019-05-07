@@ -1,7 +1,14 @@
 package com.git.reny.wallpaper.presenter;
 
 import com.git.reny.wallpaper.core.BasePresenter;
+import com.git.reny.wallpaper.core.DisCall;
+import com.git.reny.wallpaper.core.ServiceHelper;
+import com.git.reny.wallpaper.entity.response.UserData;
 import com.git.reny.wallpaper.ui.mvp.LoginView;
+import com.zyctd.mvplib.utils.ToastUtils;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 登录
@@ -11,86 +18,44 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         super(view);
     }
 
-    public void login(String LoginName, String Password, String ValidateCode) {
-        /*addDisposable(ServiceHelper.getApi().login(getRequest("Login")
-                        .setCommand("AndroidUserSignService/Login")
-                        .set("LoginName", LoginName)
-                        .set("Password", Password)
-                        .set("ValidateCode", ValidateCode)
-                        .build())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableCall<LoginData>(this) {
-                            @Override
-                            public boolean isRefresh() {
-                                return true;
-                            }
+    public void login(String name, String pwd) {
+        addDisposable(ServiceHelper.getApi().login(name, pwd)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisCall<UserData>() {
+                    @Override
+                    public void onSuc(UserData data) {
+                        UserData.saveData(data);
+                        ToastUtils.showLong("登录成功");
+                        finish();
+                    }
 
-                            @Override
-                            public boolean isEmpty(LoginData value) {
-                                return false;
-                            }
-
-                            @Override
-                            public void onSuc(LoginData data) {
-                                getView().loginSuc(data);
-
-                            }
-
-                            @Override
-                            public void onErr(Throwable e) {
-                                if (e instanceof ResultException) {
-                                    ResultException resultException = ((ResultException) e);
-                                    if (resultException.getCode() == 103) {
-                                        GetLoginValidateCode();
-                                        AppUtils.self().showToast("验证码错误");
-                                    } else if (resultException.getCode() == 11) {
-                                        AppUtils.self().showToast("登录失败，请稍后重试");
-                                    } else {
-                                        AppUtils.self().showToast(resultException.getMessage());
-                                    }
-                                } else {
-                                    AppUtils.self().showToast("登录失败，请稍后重试");
-                                }
-//                        LogUtils.e(TAG + ":" + e.getMessage());
-                            }
-                        })
-        );*/
+                    @Override
+                    public void onErr(Throwable e) {
+                        ToastUtils.showLong(e.getMessage());
+                    }
+                })
+        );
     }
 
-    /**
-     * 获取登录图片验证码
-     */
-    public void GetLoginValidateCode() {
+    public void register(String name, String pwd) {
+        addDisposable(ServiceHelper.getApi().register(name, pwd)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisCall<UserData>() {
+                    @Override
+                    public void onSuc(UserData data) {
+                        UserData.saveData(data);
+                        ToastUtils.showLong("注册成功");
+                        finish();
+                    }
 
-        /*addDisposable(ServiceHelper.getApi().GetLoginValidateCode(getRequest("GetLoginValidateCode")
-                        .setCommand("AndroidUserSignService/GetLoginValidateCode")
-                        .build()).subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableCall<LoginCodeData>(this) {
-                            @Override
-                            public boolean isRefresh() {
-                                return false;
-                            }
-
-                            @Override
-                            public boolean isEmpty(LoginCodeData value) {
-                                return false;
-                            }
-
-                            @Override
-                            public void onSuc(LoginCodeData data) {
-                                getView().validateCodeSuc(data.getValidateCodeImage());
-
-                            }
-
-                            @Override
-                            public void onErr(Throwable e) {
-                                AppUtils.self().showToast(e.getMessage());
-//                        LogUtils.e(TAG + ":" + e.getMessage());
-                            }
-                        })
-        );*/
-
+                    @Override
+                    public void onErr(Throwable e) {
+                        ToastUtils.showLong(e.getMessage());
+                    }
+                })
+        );
     }
+
 }

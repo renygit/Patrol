@@ -1,12 +1,4 @@
 <resources>
     <!--存放SharedPreferences中的一些spName 取值不能重复-->
     <string name="LoginData">LoginData</string>
-    <!--未登录时，自己生成的Token，需要保持不变，所以要存储-->
-    <string name="Token">Token</string>
-
-    <string name="SaveVersion">SaveVersion</string>
-    <string name="SplashData">SplashData</string>
-
-
-    <string name="CategoryStyle">CategoryStyle</string>
 </resources>

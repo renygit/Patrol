@@ -1,8 +1,10 @@
 package com.git.reny.wallpaper.core;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.git.reny.wallpaper.utils.SwipeBackUtils;
 import com.jaeger.library.StatusBarUtil;
@@ -28,6 +30,11 @@ public abstract class BaseActivity<P extends RBasePresenter> extends RBaseActivi
 
         if (isTranslucentStatusBar()) {
             StatusBarUtil.setTranslucentForImageViewInFragment(this, null);
+        }
+
+        StatusBarUtil.setLightMode(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
 
         super.onCreate(savedInstanceState);

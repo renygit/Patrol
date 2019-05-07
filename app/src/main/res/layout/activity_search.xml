@@ -10,7 +10,7 @@
         style="@style/toolBarStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolHeight"
-        android:background="@color/theme"
+        android:background="@color/status_bg"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ToolBarPopTheme">
 

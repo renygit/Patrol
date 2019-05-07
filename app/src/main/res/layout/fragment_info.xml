@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.renygit.multistateview.MultiStateView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/msv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:msv_tipEmpty="暂时没有相关信息">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/stl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolHeight"
+            android:background="@color/status_bg"
+            app:tl_indicator_color="@color/theme"
+            app:tl_indicator_height="1dp"
+            app:tl_indicator_width_equal_title="false"
+            app:tl_tab_padding="@dimen/x44"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="@color/theme"
+            app:tl_textUnselectColor="#666"
+            app:tl_textsize="@dimen/x42"
+            app:tl_textBold="SELECT"
+            app:tl_underline_color="@color/line"
+            app:tl_underline_height="@dimen/line" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</com.renygit.multistateview.MultiStateView>

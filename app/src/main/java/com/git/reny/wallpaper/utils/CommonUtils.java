@@ -14,8 +14,10 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.git.reny.wallpaper.R;
 import com.zyctd.mvplib.base.RBasePresenter;
-import com.zyctd.mvplib.utils.AppUtils;
+import com.zyctd.mvplib.utils.ResUtils;
+import com.zyctd.mvplib.utils.ToastUtils;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -101,7 +103,7 @@ public class CommonUtils {
 
     public static boolean isEmpty(Object datas) {
         boolean isEmpty = (null == datas);
-        if (null != datas && datas instanceof List) {
+        if (datas instanceof List) {
             isEmpty = (((List) datas).size() == 0);
         }
         return isEmpty;
@@ -121,7 +123,7 @@ public class CommonUtils {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         }catch (Exception e){
-            AppUtils.self().showToastLong("调用拨打电话出错，请重试");
+            ToastUtils.showLong("调用拨打电话出错，请重试");
         }
     }
 
@@ -213,5 +215,34 @@ public class CommonUtils {
      */
     public static boolean isBlank(String str) {
         return (str == null || str.trim().length() == 0);
+    }
+
+
+    /**
+     * 分享功能
+     *
+     * @param context 上下文
+     * @param activityTitle Activity的名字
+     * @param msgTitle 消息标题
+     * @param msgText 消息内容
+     * @param imgPath 图片路径，不分享图片则传null
+     */
+    public static void shareMsg(Context context, String activityTitle, String msgTitle, String msgText,
+                                String imgPath) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        if (imgPath == null || imgPath.trim().equals("")) {
+            intent.setType("text/plain"); // 纯文本
+        } else {
+            File f = new File(imgPath);
+            if (f != null && f.exists() && f.isFile()) {
+                intent.setType("image/jpg");
+                Uri u = Uri.fromFile(f);
+                intent.putExtra(Intent.EXTRA_STREAM, u);
+            }
+        }
+        intent.putExtra(Intent.EXTRA_SUBJECT, msgTitle);
+        intent.putExtra(Intent.EXTRA_TEXT, msgText);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(Intent.createChooser(intent, activityTitle));
     }
 }

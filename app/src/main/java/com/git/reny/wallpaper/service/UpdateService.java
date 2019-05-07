@@ -21,7 +21,7 @@ import com.git.reny.wallpaper.entity.response.UpdateResult;
 import com.git.reny.wallpaper.ui.activity.MainActivity;
 import com.git.reny.wallpaper.utils.Constans;
 import com.git.reny.wallpaper.utils.FileUtils;
-import com.git.reny.wallpaper.utils.ResUtils;
+import com.zyctd.mvplib.utils.ResUtils;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloader;
 import com.liulishuo.filedownloader.model.FileDownloadStatus;

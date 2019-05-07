@@ -3,7 +3,7 @@ package com.git.reny.wallpaper.widget.divider;
 import android.support.annotation.ColorInt;
 
 import com.git.reny.wallpaper.R;
-import com.git.reny.wallpaper.utils.ResUtils;
+import com.zyctd.mvplib.utils.ResUtils;
 
 /**
  * Created by admin on 2017/6/30.

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="theme">#4e498b</color>
+    <color name="theme">#ff6d2b</color>
     <color name="default_bg">#ffffff</color>
+    <color name="status_bg">#f0f0f0</color>
 
     <color name="colorPrimary">@color/theme</color>
     <color name="colorPrimaryDark">@color/theme</color>
     <color name="colorAccent">@color/theme</color>
+
+    <color name="material_login_login_color">#fff</color>
+    <color name="material_login_register_color">#ff6d2b</color>
+    <color name="material_login_login_error_color">#ab0b0b</color>
+    <color name="material_login_register_error_color">#b4080c</color>
 
     <color name="pic_selector_theme">@color/theme</color>
 
@@ -14,7 +20,9 @@
     <color name="line">#e3e3e3</color>
 
     <color name="whiteClick">#20000000</color>
-    <color name="themeClick">#3384f2</color>
+    <color name="themeClick">#e65d1f</color>
+
+    <color name="top_title_color_black">#555</color>
 
 
     <color name="dot_tip_red">#f15f5f</color>
@@ -37,8 +45,8 @@
     <color name="color34">#343434</color>
 
 
-    <color name="roll_point_hint_n">#dddedb</color>
-    <color name="roll_point_hint_p">#679fef</color>
+    <color name="roll_point_hint_n">#bbdddedb</color>
+    <color name="roll_point_hint_p">@color/theme</color>
 
     <color name="white">#fff</color>
 

@@ -1,3 +1,4 @@
+/*
 package com.git.reny.wallpaper.ui.fragment;
 
 import android.os.Bundle;
@@ -101,3 +102,4 @@ public class CategoryFragment extends BaseFragment {
     }
 
 }
+*/

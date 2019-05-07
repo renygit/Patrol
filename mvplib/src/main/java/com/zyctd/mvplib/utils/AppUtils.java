@@ -1,15 +1,12 @@
 package com.zyctd.mvplib.utils;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
 
@@ -20,7 +17,6 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 public class AppUtils {
 
     private Application mApplication;
-    private Toast toast = null;
     private KProgressHUD progressHUD;
 
     private AppUtils(){
@@ -68,46 +64,6 @@ public class AppUtils {
         View view = activity.getWindow().getDecorView().findViewById(android.R.id.content);
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).show();
     }
-
-    @SuppressLint("ShowToast")
-    public void showToast(@StringRes int resId) {
-        if(null == toast){
-            toast = Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT);
-        }
-        toast.setText(resId);
-        toast.show();
-    }
-
-
-    @SuppressLint("ShowToast")
-    public void showToast(String message) {
-        if(null == toast){
-            toast = Toast.makeText(getContext(), message, Toast.LENGTH_SHORT);
-        }
-        toast.setText(message);
-        toast.show();
-    }
-
-
-    @SuppressLint("ShowToast")
-    public void showToastLong(@StringRes int resId) {
-        if(null == toast){
-            toast = Toast.makeText(getContext(), resId, Toast.LENGTH_LONG);
-        }
-        toast.setText(resId);
-        toast.show();
-    }
-
-
-    @SuppressLint("ShowToast")
-    public void showToastLong(String message) {
-        if(null == toast){
-            toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
-        }
-        toast.setText(message);
-        toast.show();
-    }
-
 
     public void showLoading(Activity activity, boolean isCancel, String... tips) {
         if(null != activity) {

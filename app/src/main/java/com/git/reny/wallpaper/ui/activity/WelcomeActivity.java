@@ -12,6 +12,7 @@ import com.git.reny.wallpaper.utils.Constans;
 import com.zyctd.mvplib.base.RBasePresenter;
 import com.zyctd.mvplib.utils.AppUtils;
 import com.zyctd.mvplib.utils.LogUtils;
+import com.zyctd.mvplib.utils.ToastUtils;
 
 import butterknife.BindView;
 import io.reactivex.observers.DisposableObserver;
@@ -57,7 +58,7 @@ public class WelcomeActivity extends BaseActivity {
                 if (aBoolean) {
                     start();
                 } else {
-                    AppUtils.self().showToastLong("缺少APP启动需要的基本权限");
+                    ToastUtils.showLong("缺少APP启动需要的基本权限");
                     finish();
                 }
             }

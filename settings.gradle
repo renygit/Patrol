@@ -1,1 +1,1 @@
-include ':app', ':mvplib', ':scrolltoplib', ':LayoutManagerGroup'
+include ':app', ':mvplib', ':scrolltoplib', ':LayoutManagerGroup', ':x5webviewlib', ':material-login'

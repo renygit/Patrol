@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.git.reny.wallpaper.R;
 import com.git.reny.wallpaper.entity.other.CategoryBean;
-import com.git.reny.wallpaper.utils.ResUtils;
+import com.zyctd.mvplib.utils.ResUtils;
 import com.git.reny.wallpaper.utils.glide.GlideHelper;
 
 import java.util.List;

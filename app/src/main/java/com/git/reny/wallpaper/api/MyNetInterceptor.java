@@ -1,14 +1,10 @@
 package com.git.reny.wallpaper.api;
 
-import android.text.TextUtils;
-
-
 import com.git.reny.wallpaper.R;
 import com.git.reny.wallpaper.core.ResultException;
 import com.git.reny.wallpaper.entity.response.GlobleResponse;
-import com.git.reny.wallpaper.utils.ResUtils;
-import com.git.reny.wallpaper.utils.SPUtils;
 import com.zyctd.mvplib.utils.LogUtils;
+import com.zyctd.mvplib.utils.ResUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,7 +12,6 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.IOException;
-import java.util.UUID;
 
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -33,12 +28,12 @@ public class MyNetInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         Request.Builder requestBuilder = chain.request().newBuilder();
 
-        String _UUID = SPUtils.init(R.string.Token).getString(R.string.Token);
+        /*String _UUID = SPUtils.init(R.string.Token).getString(R.string.Token);
         if(TextUtils.isEmpty(_UUID)){
             _UUID = UUID.randomUUID().toString();
             SPUtils.init(R.string.Token).putString(R.string.Token, _UUID);
         }
-        requestBuilder.addHeader("token", _UUID);
+        requestBuilder.addHeader("token", _UUID);*/
         Request request = requestBuilder.build();
 
         //LogUtils.e("token:" + request.header("token"));

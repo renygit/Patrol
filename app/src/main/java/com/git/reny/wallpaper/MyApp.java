@@ -2,9 +2,11 @@ package com.git.reny.wallpaper;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
 import com.bumptech.glide.request.target.ViewTarget;
+import com.git.reny.wallpaper.entity.response.UserData;
 import com.git.reny.wallpaper.utils.ScreenInfoUtils;
 import com.git.reny.wallpaper.utils.ThreadUtils;
 import com.liulishuo.filedownloader.FileDownloader;
@@ -13,6 +15,7 @@ import com.renygit.multistateview.MultiStateConfig;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
 import com.wanjian.cockroach.Cockroach;
 import com.zyctd.mvplib.utils.AppUtils;
@@ -26,25 +29,7 @@ public class MyApp extends Application {
 
     public static MyApp instance;
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        instance = this;
-        AppUtils.self().setApplication(instance);
-
-        init();
-    }
-
-    private void init() {
-        LogUtils.isPrintResponseData = true;
-        LogUtils.init(BuildConfig.DEBUG);
-
-        //LoginData.self().readData();
-
-        ScreenInfoUtils.init(this);
-
-        ViewTarget.setTagId(R.id.glide_tag);//解决Glide使用报错
-
+    static {
         //设置全局的多状态配置 局部支持xml设置 可以设置不同状态的图片提示
         MultiStateConfig.getInstance().setConfig(
                 new MultiStateConfig.Build()
@@ -68,7 +53,52 @@ public class MyApp extends Application {
             //指定Footer
             return new ClassicsFooter(context);
         });
+    }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        instance = this;
+        AppUtils.self().setApplication(instance);
+
+        init();
+    }
+
+    private void init() {
+        LogUtils.isPrintResponseData = true;
+        LogUtils.init(BuildConfig.DEBUG);
+
+        //LoginData.self().readData();
+
+        ScreenInfoUtils.init(this);
+
+        ViewTarget.setTagId(R.id.glide_tag);//解决Glide使用报错
+
+        QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
+            @Override
+            public void onViewInitFinished(boolean arg0) {
+                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
+                if(BuildConfig.DEBUG) {
+                    LogUtils.e("x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核:" + arg0);
+                }
+            }
+            @Override
+            public void onCoreInitFinished() {
+                if(BuildConfig.DEBUG){
+                    LogUtils.e("QQ X5内核加载成功");
+                }
+            }
+        };
+        QbSdk.initX5Environment(getApplicationContext(), cb);
+
+
+        UserData.readData();
         FileDownloader.setupOnApplicationOnCreate(this);
 
         MobclickAgent.setDebugMode(BuildConfig.DEBUG);
@@ -86,6 +116,9 @@ public class MyApp extends Application {
                 MobclickAgent.reportError(getContext(), throwable);
             }));
         }
+
+
+        //Jzvd.setMediaInterface(new JZMediaIjkplayer());
     }
 
     public static Context getContext(){

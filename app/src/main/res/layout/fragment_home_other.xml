@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.renygit.multistateview.MultiStateView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/msv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:msv_tipEmpty="暂时没有相关数据">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/srl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.renygit.scrolltoplib.AutoScrollBackLayout
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </com.renygit.scrolltoplib.AutoScrollBackLayout>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</com.renygit.multistateview.MultiStateView>

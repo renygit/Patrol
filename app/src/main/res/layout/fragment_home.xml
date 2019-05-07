@@ -4,25 +4,34 @@
     android:id="@+id/msv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:msv_tipEmpty="暂时没有相关推荐">
+    app:msv_tipEmpty="暂时没有相关信息">
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/srl"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.renygit.scrolltoplib.AutoScrollBackLayout
-            android:id="@+id/scroll_layout"
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/stl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="@dimen/toolHeight"
+            android:background="@color/status_bg"
+            app:tl_indicator_color="@color/theme"
+            app:tl_indicator_height="1dp"
+            app:tl_indicator_width_equal_title="false"
+            app:tl_tab_padding="@dimen/x44"
+            app:tl_tab_space_equal="false"
+            app:tl_textSelectColor="@color/theme"
+            app:tl_textUnselectColor="#666"
+            app:tl_textsize="@dimen/x42"
+            app:tl_textBold="SELECT"
+            app:tl_underline_color="@color/line"
+            app:tl_underline_height="@dimen/line" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.renygit.scrolltoplib.AutoScrollBackLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
-
+    </LinearLayout>
 </com.renygit.multistateview.MultiStateView>

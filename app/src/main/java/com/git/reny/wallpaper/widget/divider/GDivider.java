@@ -2,7 +2,7 @@ package com.git.reny.wallpaper.widget.divider;
 
 
 import com.git.reny.wallpaper.R;
-import com.git.reny.wallpaper.utils.ResUtils;
+import com.zyctd.mvplib.utils.ResUtils;
 import com.git.reny.wallpaper.widget.divider.lib.RDivider;
 import com.git.reny.wallpaper.widget.divider.lib.RDividerBuilder;
 import com.git.reny.wallpaper.widget.divider.lib.RDividerItemDecoration;

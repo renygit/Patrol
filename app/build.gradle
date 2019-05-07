@@ -14,6 +14,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         resConfigs "zh"
+        // dex突破65535的限制
+        multiDexEnabled true
 
     }
     signingConfigs {
@@ -69,6 +71,20 @@ android {
             dirs 'libs'
         }
     }
+
+    dexOptions {
+        javaMaxHeapSize "4g" //此处可根据电脑本身配置 数值越大 当然越快
+        preDexLibraries = false
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'armeabi-v7a','x86_64'
+            universalApk true
+        }
+    }
 }
 
 packer {
@@ -81,6 +97,8 @@ packer {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:multidex:1.0.3'
+
     implementation "com.android.support:cardview-v7:${rootProject.ext.android["supportVersion"]}"
     annotationProcessor('com.jakewharton:butterknife-compiler:8.8.1') {
         exclude module: 'support-annotations'
@@ -89,6 +107,8 @@ dependencies {
     implementation project(':mvplib')
     implementation project(':scrolltoplib')
     implementation project(':LayoutManagerGroup')
+    implementation project(':x5webviewlib')
+    implementation project(':material-login')
     //永不crash
     implementation 'com.wanjian:cockroach:0.0.5'
     //友盟统计
@@ -114,6 +134,10 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     //Tab
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
+    //轮播ViewPager
+    implementation 'com.jude:rollviewpager:1.4.6'
+
     //圆形图片
     //implementation 'de.hdodenhof:circleimageview:2.2.0'
     //圆角矩形
@@ -123,5 +147,9 @@ dependencies {
     //implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-alpha-1'
 
     implementation 'com.xw.repo:xedittext:2.2.1@aar'
+
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.9'
+    //implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
 }
