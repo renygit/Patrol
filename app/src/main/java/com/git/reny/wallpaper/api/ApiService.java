@@ -1,6 +1,7 @@
 package com.git.reny.wallpaper.api;
 
 import com.git.reny.wallpaper.entity.response.CollectData;
+import com.git.reny.wallpaper.entity.response.CookList;
 import com.git.reny.wallpaper.entity.response.HomeList;
 import com.git.reny.wallpaper.entity.response.HomeRecommend;
 import com.git.reny.wallpaper.entity.response.HomeRecommendList;
@@ -38,6 +39,14 @@ public interface ApiService {
     //获取收藏的List数据(http://http://192.168.3.14:8080/collect/getlist?userId=5cd031f55460de20686b416a&page_size=10&page=1)
     @GET("collect/getlist")
     Observable<HomeList> getCollectList(@Query("userId")String userId, @Query("page_size")int page_size, @Query("page")int page);
+
+
+
+    @GET("upload")
+    Observable<Object> upload(@Query("userId")String userId, @Query("title")String title, @Query("content")String content, @Query("imgs[]")String[] imgs);
+
+    @GET("cook/getlist")
+    Observable<CookList> getCookList(@Query("page_size")int page_size, @Query("page")int page);
 
 
     //首页tab项

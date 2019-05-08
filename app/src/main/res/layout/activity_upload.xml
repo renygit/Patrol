@@ -11,9 +11,140 @@
         style="@style/toolBarStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolHeight"
-        android:background="@color/status_bg"
-        android:navigationIcon="@mipmap/ic_cancel_gray"
-        app:navigationIcon="@mipmap/ic_cancel_gray" />
+        android:background="@color/status_bg">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="分享美食"
+            android:textColor="@color/top_title_color_black"
+            android:textSize="@dimen/nav_title" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:background="@color/line" />
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eee"
+                android:padding="@dimen/x20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="标题" />
+
+                <TextView
+                    android:id="@+id/tv_title_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="0/25" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="请输入一个美食标题"
+                android:lines="2"
+                android:maxLength="25"
+                android:maxLines="2"
+                android:padding="@dimen/x20"
+                android:textSize="@dimen/x42" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eee"
+                android:padding="@dimen/x20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="短文" />
+
+                <TextView
+                    android:id="@+id/tv_content_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="0/1000" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="创作一个相关的精美短文"
+                android:lines="10"
+                android:maxLength="1000"
+                android:maxLines="10"
+                android:padding="@dimen/x20"
+                android:textSize="@dimen/x42" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eee"
+                android:padding="@dimen/x20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最后配上美图" />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_imgs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/x10" />
+
+
+            <com.flyco.roundview.RoundTextView
+                android:id="@+id/tv_publish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x25"
+                android:layout_marginTop="@dimen/y40"
+                android:layout_marginRight="@dimen/x25"
+                android:layout_marginBottom="@dimen/y300"
+                android:gravity="center"
+                android:padding="@dimen/x30"
+                android:text="发布美食"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x44"
+                app:rv_backgroundColor="@color/theme"
+                app:rv_backgroundPressColor="@color/themeClick"
+                app:rv_cornerRadius="@dimen/x10" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>
 

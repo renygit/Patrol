@@ -1,6 +1,7 @@
 package com.git.reny.wallpaper.utils;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 
 import com.git.reny.wallpaper.R;
@@ -8,7 +9,10 @@ import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
+import com.luck.picture.lib.tools.PictureFileUtils;
+import com.zyctd.mvplib.utils.LogUtils;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -120,6 +124,16 @@ public class PicUtils {
             return path;
         }
         return "";
+    }
+
+
+    public static void clearCache(Context context){
+        try {
+            PictureFileUtils.deleteCacheDirFile(context);
+            FileUtils.deleteFile(new File(FileUtils.getDownLoadPath(null)));
+        }catch (Exception e){
+            LogUtils.e(e.getMessage());
+        }
     }
 
 }

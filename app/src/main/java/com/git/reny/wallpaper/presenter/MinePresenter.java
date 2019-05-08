@@ -46,9 +46,7 @@ public class MinePresenter extends BasePresenter<MineView> {
                     @Override
                     public void onSuc(HomeList data) {
                         page = isRefresh ? 2 : ++page;
-                        if (!isEmpty(data)) {
-                            getView().setData(isRefresh, data);
-                        }
+                        getView().setData(isRefresh, data);
                     }
 
                     @Override

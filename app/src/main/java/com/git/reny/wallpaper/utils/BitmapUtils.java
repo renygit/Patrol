@@ -5,11 +5,27 @@ import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.util.Base64;
 
+import java.io.ByteArrayOutputStream;
+
 /**
  * Created by admin on 2017/7/5.
  */
 
 public class BitmapUtils {
+
+    public static String bitmapToBase64(Bitmap bitmap) {
+        // 将Bitmap转换成Base64字符串
+        ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bStream);
+        int options = 100;
+        while ( bStream.toByteArray().length / 1024>100) {  //循环判断如果压缩后图片是否大于100kb,大于继续压缩
+            bStream.reset();//重置baos即清空baos
+            bitmap.compress(Bitmap.CompressFormat.JPEG, options, bStream);//这里压缩options%，把压缩后的数据存放到baos中
+            options -= 10;//每次都减少10
+        }
+        byte[] bytes = bStream.toByteArray();
+        return Base64.encodeToString(bytes, Base64.DEFAULT);
+    }
 
     public static Bitmap base64ToBitmap(String imgString) {
         if(TextUtils.isEmpty(imgString)) return null;

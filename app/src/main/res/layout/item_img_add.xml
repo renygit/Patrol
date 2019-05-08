@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/x20"
+    android:padding="1dp"
+    android:background="@drawable/dash_rect_gray">
+
+    <com.git.reny.wallpaper.widget.RatioImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:base="width"
+        app:height_ratio="203"
+        app:width_ratio="306" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/bg_white_selector"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_camera_lj" />
+
+
+        <TextView
+            android:id="@+id/tv_img_add_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y25"
+            android:text="传图片"
+            android:textColor="#ccc"
+            android:textSize="@dimen/x38" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

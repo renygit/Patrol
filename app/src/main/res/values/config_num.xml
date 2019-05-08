@@ -2,8 +2,8 @@
 <resources>
     <integer name="pageSize">15</integer>
 
-    <integer name="chart_anim_time">1000</integer>
-    <integer name="roll_pager_time">7000</integer>
+    <integer name="publish_title_len">25</integer>
+    <integer name="publish_content_len">1000</integer>
+    <integer name="publish_img_max_count">6</integer>
 
-    <integer name="has_data_year">2007</integer>
 </resources>

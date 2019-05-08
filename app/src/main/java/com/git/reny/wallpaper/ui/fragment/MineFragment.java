@@ -119,7 +119,8 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineVie
             rv.setAdapter(adapter);
         } else {
             if (isRefresh) {
-                adapter.setNewData(data.getListData());
+                adapter.replaceData(data.getListData());
+                //adapter.setNewData(data.getListData());
             } else {
                 adapter.addData(data.getListData());
                 adapter.notifyDataSetChanged();
