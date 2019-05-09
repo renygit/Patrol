@@ -9,7 +9,7 @@ import java.util.List;
  * Created by reny
  */
 
-public interface ReplyRecommandView extends IBaseView {
+public interface ReplyView extends IBaseView {
 
     void setData(boolean isRefresh, List<CookBean> datas);
 

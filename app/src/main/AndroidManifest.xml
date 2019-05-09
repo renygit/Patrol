@@ -94,20 +94,12 @@
         </activity>
 
         <activity
-            android:name="com.git.reny.wallpaper.ui.activity.UpdateActivity"
-            android:configChanges="orientation|keyboard|keyboardHidden"
-            android:theme="@style/TranslucentTheme" />
-
-        <activity
             android:name="com.git.reny.wallpaper.ui.activity.SearchActivity"
             android:configChanges="orientation|keyboard|keyboardHidden" />
 
         <activity
             android:name="com.git.reny.wallpaper.ui.activity.UploadActivity"
             android:configChanges="orientation|keyboard|keyboardHidden" />
-
-
-        <service android:name="com.git.reny.wallpaper.service.UpdateService" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

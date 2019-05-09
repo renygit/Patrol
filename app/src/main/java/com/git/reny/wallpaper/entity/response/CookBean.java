@@ -9,13 +9,15 @@ public class CookBean {
     private String title;
     private String content;
     private List<String> imgs;
+    private DateBean date;
 
-    public CookBean(IdBean _id, String userId, String title, String content, List<String> imgs) {
+    public CookBean(IdBean _id, String userId, String title, String content, List<String> imgs, DateBean date) {
         this._id = _id;
         this.userId = userId;
         this.title = title;
         this.content = content;
         this.imgs = imgs;
+        this.date = date;
     }
 
     public IdBean get_id() {
@@ -56,5 +58,13 @@ public class CookBean {
 
     public void setImgs(List<String> imgs) {
         this.imgs = imgs;
+    }
+
+    public DateBean getDate() {
+        return date;
+    }
+
+    public void setDate(DateBean date) {
+        this.date = date;
     }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string name="fuzzydatetime__seconds">刚刚</string>
+    <plurals name="fuzzydatetime__seconds_ago">
+        <item quantity="one">%d秒前</item>
+        <item quantity="other">%d秒前</item>
+    </plurals>
+    <plurals name="fuzzydatetime__minutes_ago">
+        <item quantity="one">%d分钟前</item>
+        <item quantity="other">%d分钟前</item>
+    </plurals>
+    <plurals name="fuzzydatetime__hours_ago">
+        <item quantity="one">%d小时前</item>
+        <item quantity="other">%d小时前</item>
+    </plurals>
+    <plurals name="fuzzydatetime__days_ago">
+        <item quantity="one">%d天前</item>
+        <item quantity="other">%d天前</item>
+    </plurals>
+    <plurals name="fuzzydatetime__weeks_ago">
+        <item quantity="one">%d周前</item>
+        <item quantity="other">%d周前</item>
+    </plurals>
+    <plurals name="fuzzydatetime__months_ago">
+        <item quantity="one">%d个月前</item>
+        <item quantity="other">%d个月前</item>
+    </plurals>
+    <plurals name="fuzzydatetime__years_ago">
+        <item quantity="one">%d年前</item>
+        <item quantity="other">%d年前</item>
+    </plurals>
+
+</resources>

@@ -106,7 +106,6 @@ dependencies {
     implementation 'com.mcxiaoke.packer-ng:helper:2.0.1'
     implementation project(':mvplib')
     implementation project(':scrolltoplib')
-    implementation project(':LayoutManagerGroup')
     implementation project(':x5webviewlib')
     implementation project(':material-login')
     //永不crash
@@ -156,5 +155,7 @@ dependencies {
     implementation 'cn.jzvd:jiaozivideoplayer:6.2.9'
     //implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    implementation 'com.chenlittleping:recyclercoverflow:1.0.6'
 
 }

@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/cardViewStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/x20">
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="30dp"
+    app:cardCornerRadius="@dimen/x20"
+    app:cardElevation="5dp">
 
     <com.git.reny.wallpaper.widget.RatioImageView
         android:id="@+id/iv_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:base="width"
-        app:height_ratio="3"
-        app:width_ratio="2" />
+        app:height_ratio="4"
+        app:width_ratio="5" />
 
     <com.flyco.roundview.RoundTextView
-        android:id="@+id/tv_category"
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
         android:ellipsize="end"
         android:maxLines="1"
-        android:padding="@dimen/x20"
+        android:padding="10dp"
         android:singleLine="true"
+        android:text="标题"
         android:textColor="#fff"
-        android:textSize="@dimen/x36"
-        app:rv_backgroundColor="#22000000"
+        android:textSize="18sp"
+        app:rv_backgroundColor="#55000000"
         app:rv_cornerRadius_BL="@dimen/x20"
         app:rv_cornerRadius_BR="@dimen/x20" />
 
-</RelativeLayout>
+</android.support.v7.widget.CardView>
