@@ -21,7 +21,6 @@ import com.renygit.scrolltoplib.AutoScrollBackLayout;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -47,7 +46,6 @@ public class ReplyFragment extends BaseFragment<ReplyPresenter> implements Reply
     private ReplyListAdapter listAdapter;
 
     private int recommandNum = 5;
-    private List<CookBean> listDatas;
 
     @Override
     protected int getLayoutId() {
@@ -88,8 +86,7 @@ public class ReplyFragment extends BaseFragment<ReplyPresenter> implements Reply
     @Override
     public void setData(boolean isRefresh, List<CookBean> datas) {
         if (null == listAdapter) {
-            listDatas = new ArrayList<>();
-            listAdapter = new ReplyListAdapter(listDatas);
+            listAdapter = new ReplyListAdapter(null);
             rvList.setHasFixedSize(true);
             rvList.setNestedScrollingEnabled(false);
             rvList.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -101,19 +98,17 @@ public class ReplyFragment extends BaseFragment<ReplyPresenter> implements Reply
                 adapter = new CardAdapter(datas.size() > recommandNum ? datas.subList(0, recommandNum) : datas);
                 rvRecommend.setAdapter(adapter);
             }else {
-                adapter.replaceData(datas.size() > recommandNum ? datas.subList(0, recommandNum) : datas);
+                adapter.setNewData(datas.size() > recommandNum ? datas.subList(0, recommandNum) : datas);
             }
 
             if(datas.size() > recommandNum){
                 rvList.setVisibility(View.VISIBLE);
-                listDatas.clear();
-                listDatas.addAll(datas.subList(recommandNum, datas.size()));
-                listAdapter.notifyDataSetChanged();
+                listAdapter.setNewData(datas.subList(recommandNum, datas.size()));
             }else {
                 rvList.setVisibility(View.GONE);
             }
         }else {
-            listDatas.addAll(datas);
+            listAdapter.addData(datas);
             listAdapter.notifyDataSetChanged();
         }
     }
