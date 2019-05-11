@@ -2,8 +2,12 @@
 <resources>
     <integer name="pageSize">15</integer>
 
+    <integer name="roll_time">3000</integer>
+
     <integer name="publish_title_len">25</integer>
     <integer name="publish_content_len">1000</integer>
     <integer name="publish_img_max_count">6</integer>
+
+    <integer name="reply_content_len">200</integer>
 
 </resources>

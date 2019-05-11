@@ -32,7 +32,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="180dp"
                         android:layout_margin="@dimen/x25"
-                        app:rollviewpager_play_delay="3000" />
+                        app:rollviewpager_play_delay="@integer/roll_time" />
 
                     <TextView
                         android:id="@+id/tv_recommend_tip"

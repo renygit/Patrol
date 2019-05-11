@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/x20"
+    android:paddingTop="@dimen/y20"
+    android:paddingBottom="@dimen/y10">
+
+    <EditText
+        android:id="@+id/et_reply"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/et_reply_bg"
+        android:gravity="left|top"
+        android:lines="3"
+        android:maxLength="@integer/reply_content_len"
+        android:maxLines="3"
+        android:minLines="3"
+        android:padding="@dimen/x28"
+        android:textColor="#333"
+        android:textColorHint="#ccc"
+        android:textSize="@dimen/x42" />
+
+    <TextView
+        android:id="@+id/tv_publish_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:paddingLeft="@dimen/x25"
+        android:paddingTop="@dimen/y25"
+        android:paddingRight="@dimen/x30"
+        android:paddingBottom="@dimen/y25"
+        android:text="发布"
+        android:textColor="#999"
+        android:textSize="@dimen/x42" />
+
+</LinearLayout>

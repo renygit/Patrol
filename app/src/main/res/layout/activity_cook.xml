@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/toolBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolHeight"
+        android:background="@color/status_bg">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="美食欣赏"
+            android:textColor="@color/top_title_color_black"
+            android:textSize="@dimen/nav_title" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:background="@color/line" />
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/srl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.renygit.scrolltoplib.AutoScrollBackLayout
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.renygit.scrolltoplib.NestedScrollViewEx
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:descendantFocusability="blocksDescendants"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x25"
+                        android:layout_marginTop="@dimen/y30"
+                        android:layout_marginRight="@dimen/x25"
+                        android:layout_marginBottom="@dimen/y10"
+                        android:textColor="#333"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <com.jude.rollviewpager.RollPagerView
+                        android:id="@+id/rollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_margin="@dimen/x25"
+                        app:rollviewpager_play_delay="@integer/roll_time" />
+
+                    <TextView
+                        android:id="@+id/tv_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x25"
+                        android:layout_marginTop="@dimen/y30"
+                        android:layout_marginRight="@dimen/x25"
+                        android:layout_marginBottom="@dimen/y30"
+                        android:textColor="#555"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/x25"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <com.flyco.roundview.RoundLinearLayout
+                            android:id="@+id/ll_report"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/x20"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/x35"
+                            android:paddingTop="@dimen/y15"
+                            android:paddingRight="@dimen/x35"
+                            android:paddingBottom="@dimen/y15"
+                            app:rv_isRadiusHalfHeight="true"
+                            app:rv_strokeColor="#333"
+                            app:rv_strokeWidth="@dimen/line">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:drawableLeft="@mipmap/ic_report"
+                                android:drawablePadding="@dimen/x10"
+                                android:gravity="center"
+                                android:text="举报"
+                                android:textColor="#333"
+                                android:textSize="@dimen/x38" />
+
+                        </com.flyco.roundview.RoundLinearLayout>
+
+                        <com.flyco.roundview.RoundLinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/x35"
+                            android:paddingTop="@dimen/y15"
+                            android:paddingRight="@dimen/x35"
+                            android:paddingBottom="@dimen/y15"
+                            app:rv_isRadiusHalfHeight="true"
+                            app:rv_strokeColor="#333"
+                            app:rv_strokeWidth="@dimen/line">
+
+                            <CheckBox
+                                android:id="@+id/cb_praise"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:button="@drawable/select_ic_praise_tool"
+                                android:gravity="center"
+                                android:paddingLeft="@dimen/x10"
+                                android:text="0"
+                                android:textColor="#333"
+                                android:textSize="@dimen/x38" />
+
+                        </com.flyco.roundview.RoundLinearLayout>
+
+
+                    </LinearLayout>
+
+                    <com.renygit.multistateview.MultiStateView
+                        android:id="@+id/msv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:msv_tipEmpty="还没有评论哦">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.renygit.multistateview.MultiStateView>
+
+                </LinearLayout>
+            </com.renygit.scrolltoplib.NestedScrollViewEx>
+        </com.renygit.scrolltoplib.AutoScrollBackLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:id="@+id/ll_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolHeight"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/tv_publish_reply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/ic_pen_lj"
+            android:drawablePadding="@dimen/x10"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x30"
+            android:paddingTop="@dimen/y25"
+            android:paddingBottom="@dimen/y25"
+            android:text="发表评论"
+            android:textColor="#222"
+            android:textSize="@dimen/x38"
+            app:rv_backgroundColor="#f4f5f6"
+            app:rv_backgroundPressColor="#eee"
+            app:rv_isRadiusHalfHeight="true"
+            app:rv_strokeColor="#eee"
+            app:rv_strokeWidth="@dimen/line" />
+
+        <!--<FrameLayout
+            android:id="@+id/fl_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginTop="@dimen/y20"
+                android:layout_marginRight="@dimen/x20"
+                android:layout_marginBottom="@dimen/y20"
+                android:src="@mipmap/ic_msg_lj" />
+
+            <com.flyco.roundview.RoundTextView
+                android:id="@+id/tv_dot_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|top"
+                android:layout_marginTop="@dimen/y10"
+                android:layout_marginRight="@dimen/x10"
+                android:gravity="center"
+                android:paddingLeft="@dimen/x6"
+                android:paddingTop="@dimen/y2"
+                android:paddingRight="@dimen/x6"
+                android:paddingBottom="@dimen/y2"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x16"
+                android:visibility="gone"
+                app:rv_backgroundColor="@color/dot_tip_red"
+                app:rv_isRadiusHalfHeight="true"
+                tools:text="9" />
+
+        </FrameLayout>-->
+
+    </LinearLayout>
+
+</LinearLayout>
+

@@ -17,14 +17,14 @@ import java.util.List;
 public class ImgsLoopAdapter extends LoopPagerAdapter {
 
 
-    private List<String> imgUrls;
+    private List<?> imgUrls;
 
-    public ImgsLoopAdapter(RollPagerView viewPager, List<String> imgUrls) {
+    public ImgsLoopAdapter(RollPagerView viewPager, List<?> imgUrls) {
         super(viewPager);
         this.imgUrls = imgUrls;
     }
 
-    public void setImgUrls(List<String> imgUrls) {
+    public void setImgUrls(List<Object> imgUrls) {
         this.imgUrls = imgUrls;
     }
 

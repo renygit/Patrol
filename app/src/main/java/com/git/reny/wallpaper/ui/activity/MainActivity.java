@@ -13,7 +13,7 @@ import com.git.reny.wallpaper.ui.adapter.TabPagerAdapter;
 import com.git.reny.wallpaper.ui.fragment.HomeFragment;
 import com.git.reny.wallpaper.ui.fragment.InfoFragment;
 import com.git.reny.wallpaper.ui.fragment.MineFragment;
-import com.git.reny.wallpaper.ui.fragment.ReplyFragment;
+import com.git.reny.wallpaper.ui.fragment.CookListFragment;
 import com.git.reny.wallpaper.widget.SViewPager;
 import com.zyctd.mvplib.base.RBasePresenter;
 
@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity {
         List<Fragment> fragmentList = new ArrayList<>(tabTitles.length);
         fragmentList.add(new HomeFragment());
         fragmentList.add(new InfoFragment());
-        fragmentList.add(new ReplyFragment());
+        fragmentList.add(new CookListFragment());
         fragmentList.add(new MineFragment());
 
         vp.setCanScroll(false);

@@ -18,7 +18,6 @@ public class UserData {
 
     private IdBean _id;
     private String name;
-    private String pwd;
 
     public IdBean get_id() {
         return _id;
@@ -35,15 +34,6 @@ public class UserData {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
-
 
     public static void saveData(UserData userData){
         self = userData;

@@ -6,6 +6,7 @@ import com.git.reny.wallpaper.entity.response.HomeList;
 import com.git.reny.wallpaper.entity.response.HomeRecommend;
 import com.git.reny.wallpaper.entity.response.HomeRecommendList;
 import com.git.reny.wallpaper.entity.response.ListResults;
+import com.git.reny.wallpaper.entity.response.ReplyList;
 import com.git.reny.wallpaper.entity.response.UserData;
 
 import io.reactivex.Observable;
@@ -47,6 +48,14 @@ public interface ApiService {
 
     @GET("cook/getlist")
     Observable<CookList> getCookList(@Query("page_size")int page_size, @Query("page")int page);
+
+
+    @GET("reply")
+    Observable<Object> reply(@Query("userId")String userId, @Query("cookId")String cookId, @Query("remarkContent")String remarkContent);
+
+    @GET("reply/getlist")
+    Observable<ReplyList> getReplyList(@Query("cookId")String cookId, @Query("page_size")int page_size, @Query("page")int page);
+
 
 
     //首页tab项

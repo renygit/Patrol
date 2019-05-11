@@ -791,6 +791,11 @@ public static final ** CREATOR;
 -dontwarn cafe.adriel.androidaudiorecorder.**
 -keep class cafe.adriel.androidaudiorecorder.**{*;}
 
+#七牛
+-keep class com.qiniu.**{*;}
+-keep class com.qiniu.**{public <init>();}
+-ignorewarnings
+
 #webview
 #-dontwarn com.tencent.**
 #-keep class com.tencent.** { *; }

@@ -1,8 +1,11 @@
 package com.git.reny.wallpaper.entity.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class CookBean {
+public class CookBean implements Parcelable {
 
     private IdBean _id;
     private String userId;
@@ -19,6 +22,38 @@ public class CookBean {
         this.imgs = imgs;
         this.date = date;
     }
+
+    protected CookBean(Parcel in) {
+        userId = in.readString();
+        title = in.readString();
+        content = in.readString();
+        imgs = in.createStringArrayList();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(userId);
+        dest.writeString(title);
+        dest.writeString(content);
+        dest.writeStringList(imgs);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<CookBean> CREATOR = new Creator<CookBean>() {
+        @Override
+        public CookBean createFromParcel(Parcel in) {
+            return new CookBean(in);
+        }
+
+        @Override
+        public CookBean[] newArray(int size) {
+            return new CookBean[size];
+        }
+    };
 
     public IdBean get_id() {
         return _id;
