@@ -83,4 +83,8 @@ public interface ApiService {
     Observable<HomeList> getInfoList(@Query("category")String category, @Query("page_size")int page_size, @Query("page")int page);
 
 
+    @GET("search/list")
+    Observable<HomeList> getSearchList(@Query("keyword")String keyword, @Query("page_size")int page_size, @Query("page")int page);
+
+
 }

@@ -95,6 +95,7 @@
 
         <activity
             android:name="com.git.reny.wallpaper.ui.activity.SearchActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan"
             android:configChanges="orientation|keyboard|keyboardHidden" />
 
         <activity

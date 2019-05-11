@@ -138,6 +138,10 @@ public abstract class RBaseActivity<P extends RBasePresenter> extends AppCompatA
 
     }
 
+    public void setFirstLoadData(boolean firstLoadData) {
+        isFirstLoadData = firstLoadData;
+    }
+
     @Override
     public boolean useEventBus() {
         return false;

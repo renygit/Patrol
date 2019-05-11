@@ -1,6 +1,7 @@
 package com.git.reny.wallpaper.ui.mvp;
 
 import com.git.reny.wallpaper.core.IBaseView;
+import com.git.reny.wallpaper.entity.response.HomeList;
 
 /**
  * Created by reny
@@ -8,4 +9,5 @@ import com.git.reny.wallpaper.core.IBaseView;
 
 public interface SearchView extends IBaseView {
 
+    void setData(boolean isRefresh, HomeList data);
 }

@@ -271,6 +271,10 @@ public abstract class RBaseFragment<P extends RBasePresenter> extends Fragment i
 
     }
 
+    public void setFirstLoadData(boolean firstLoadData) {
+        isFirstLoadData = firstLoadData;
+    }
+
     @Override
     public void finish() {
         getActivity().finish();

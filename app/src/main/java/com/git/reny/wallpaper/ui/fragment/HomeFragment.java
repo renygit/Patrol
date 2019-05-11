@@ -1,14 +1,17 @@
 package com.git.reny.wallpaper.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.widget.FrameLayout;
 
 import com.flyco.tablayout.SlidingTabLayout;
 import com.git.reny.wallpaper.R;
 import com.git.reny.wallpaper.core.BaseFragment;
 import com.git.reny.wallpaper.entity.response.ListResults;
 import com.git.reny.wallpaper.presenter.HomePresenter;
+import com.git.reny.wallpaper.ui.activity.SearchActivity;
 import com.git.reny.wallpaper.ui.adapter.TabPagerAdapter;
 import com.git.reny.wallpaper.ui.mvp.HomeView;
 import com.renygit.multistateview.MultiStateView;
@@ -26,6 +29,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeVie
     ViewPager vp;
     @BindView(R.id.msv)
     MultiStateView msv;
+    @BindView(R.id.fl_search)
+    FrameLayout flSearch;
 
     @Override
     protected int getLayoutId() {
@@ -42,7 +47,11 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeVie
     }
 
     @Override
-    protected void init(Bundle bundle) {}
+    protected void init(Bundle bundle) {
+        flSearch.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), SearchActivity.class));
+        });
+    }
 
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {

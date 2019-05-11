@@ -11,22 +11,46 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.flyco.tablayout.SlidingTabLayout
-            android:id="@+id/stl"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolHeight"
-            android:background="@color/status_bg"
-            app:tl_indicator_color="@color/theme"
-            app:tl_indicator_height="1dp"
-            app:tl_indicator_width_equal_title="false"
-            app:tl_tab_padding="@dimen/x44"
-            app:tl_tab_space_equal="false"
-            app:tl_textSelectColor="@color/theme"
-            app:tl_textUnselectColor="#666"
-            app:tl_textsize="@dimen/x42"
-            app:tl_textBold="SELECT"
-            app:tl_underline_color="@color/line"
-            app:tl_underline_height="@dimen/line" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/stl"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/toolHeight"
+                android:layout_weight="1"
+                android:background="@color/status_bg"
+                app:tl_indicator_color="@color/theme"
+                app:tl_indicator_height="1dp"
+                app:tl_indicator_width_equal_title="false"
+                app:tl_tab_padding="@dimen/x44"
+                app:tl_tab_space_equal="false"
+                app:tl_textBold="SELECT"
+                app:tl_textSelectColor="@color/theme"
+                app:tl_textUnselectColor="#666"
+                app:tl_textsize="@dimen/x42"
+                app:tl_underline_color="@color/line"
+                app:tl_underline_height="@dimen/line" />
+
+            <FrameLayout
+                android:id="@+id/fl_search"
+                android:layout_width="@dimen/toolHeight"
+                android:layout_height="@dimen/toolHeight"
+                android:background="@color/status_bg">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_search_white"
+                    android:tint="#444" />
+
+            </FrameLayout>
+
+
+        </LinearLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/vp"
