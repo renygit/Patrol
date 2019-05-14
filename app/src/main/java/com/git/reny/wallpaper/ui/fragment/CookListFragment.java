@@ -3,7 +3,6 @@ package com.git.reny.wallpaper.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -16,6 +15,7 @@ import com.git.reny.wallpaper.ui.activity.UploadActivity;
 import com.git.reny.wallpaper.ui.adapter.CardAdapter;
 import com.git.reny.wallpaper.ui.adapter.CookListAdapter;
 import com.git.reny.wallpaper.ui.mvp.ReplyView;
+import com.git.reny.wallpaper.utils.CommonUtils;
 import com.git.reny.wallpaper.widget.divider.HDivider25Padding;
 import com.renygit.multistateview.MultiStateView;
 import com.renygit.scrolltoplib.AutoScrollBackLayout;
@@ -88,9 +88,10 @@ public class CookListFragment extends BaseFragment<ReplyPresenter> implements Re
     public void setData(boolean isRefresh, List<CookBean> datas) {
         if (null == listAdapter) {
             listAdapter = new CookListAdapter(null);
-            rvList.setHasFixedSize(true);
+            CommonUtils.initRecyclerView(rvList);
+            /*rvList.setHasFixedSize(true);
             rvList.setNestedScrollingEnabled(false);
-            rvList.setLayoutManager(new LinearLayoutManager(getActivity()));
+            rvList.setLayoutManager(new LinearLayoutManager(getActivity()));*/
             rvList.addItemDecoration(new HDivider25Padding());
             rvList.setAdapter(listAdapter);
         }

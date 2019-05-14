@@ -38,7 +38,8 @@ public class MyNetInterceptor implements Interceptor {
 
         //LogUtils.e("token:" + request.header("token"));
 
-        LogUtils.e(request.url().url().toString());//打印要访问的地址 可注释
+        String requestUrl = request.url().url().toString();
+        //LogUtils.e(request.url().url().toString());//打印要访问的地址 可注释
         Response response = chain.proceed(request);
 
         if (response.code() == 200) {
@@ -60,7 +61,7 @@ public class MyNetInterceptor implements Interceptor {
             }
 
         } else {
-            LogUtils.e("访问出错："+response.code()+"--"+response.message());
+            LogUtils.e("访问出错："+requestUrl+"\n"+response.code()+"--"+response.message());
             throw new ResultException(response.code(), ResUtils.getString(R.string.request_error));
         }
     }

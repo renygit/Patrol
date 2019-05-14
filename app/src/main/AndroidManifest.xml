@@ -106,6 +106,10 @@
             android:name="com.git.reny.wallpaper.ui.activity.CookActivity"
             android:configChanges="orientation|keyboard|keyboardHidden" />
 
+        <activity
+            android:name="com.git.reny.wallpaper.ui.activity.DetailsActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.git.reny.wallpaper.fileprovider"

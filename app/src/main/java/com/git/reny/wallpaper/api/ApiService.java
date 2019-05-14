@@ -4,6 +4,7 @@ import com.git.reny.wallpaper.entity.response.CollectData;
 import com.git.reny.wallpaper.entity.response.CookList;
 import com.git.reny.wallpaper.entity.response.HomeList;
 import com.git.reny.wallpaper.entity.response.HomeRecommend;
+import com.git.reny.wallpaper.entity.response.HomeRecommendDetails;
 import com.git.reny.wallpaper.entity.response.HomeRecommendList;
 import com.git.reny.wallpaper.entity.response.ListResults;
 import com.git.reny.wallpaper.entity.response.ReplyList;
@@ -68,6 +69,9 @@ public interface ApiService {
 
     @GET("home/recommend/list")
     Observable<HomeRecommendList> getHomeRecommendList(@Query("lastid")String lastid);
+
+    @GET("home/recommend/list/details")
+    Observable<HomeRecommendDetails> getHomeRecommendDetails(@Query("ids")String ids);
 
 
     //食文tab项
