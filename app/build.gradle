@@ -158,6 +158,10 @@ dependencies {
     //implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
+    //ViewPagerIndicator https://github.com/romandanylyk/PageIndicatorView
+    implementation 'com.romandanylyk:pageindicatorview:1.0.1@aar'
+
+    //recycler展示画廊图片
     implementation 'com.chenlittleping:recyclercoverflow:1.0.6'
 
 }

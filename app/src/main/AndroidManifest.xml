@@ -29,7 +29,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
-        android:name="com.git.reny.wallpaper.MyApp"
+        android:name=".MyApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -39,7 +39,7 @@
         tools:replace="android:allowBackup,android:theme">
 
         <activity
-            android:name="com.git.reny.wallpaper.ui.activity.WelcomeActivity"
+            android:name=".ui.activity.WelcomeActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppStartTheme">
@@ -52,13 +52,13 @@
 
         <!--登录-->
         <activity
-            android:name="com.git.reny.wallpaper.ui.activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.git.reny.wallpaper.ui.activity.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -94,21 +94,27 @@
         </activity>
 
         <activity
-            android:name="com.git.reny.wallpaper.ui.activity.SearchActivity"
+            android:name=".ui.activity.SearchActivity"
             android:windowSoftInputMode="stateVisible|adjustPan"
             android:configChanges="orientation|keyboard|keyboardHidden" />
 
         <activity
-            android:name="com.git.reny.wallpaper.ui.activity.UploadActivity"
+            android:name=".ui.activity.UploadActivity"
             android:configChanges="orientation|keyboard|keyboardHidden" />
 
         <activity
-            android:name="com.git.reny.wallpaper.ui.activity.CookActivity"
+            android:name=".ui.activity.CookActivity"
             android:configChanges="orientation|keyboard|keyboardHidden" />
 
         <activity
-            android:name="com.git.reny.wallpaper.ui.activity.DetailsActivity"
+            android:name=".ui.activity.DetailsActivity"
             android:configChanges="orientation|keyboard|keyboardHidden" />
+
+        <!-- 大图浏览 -->
+        <activity
+            android:name=".ui.activity.ImagesActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:theme="@style/TranslucentNoAnimAppTheme" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

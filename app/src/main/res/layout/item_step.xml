@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_white_selector"
-    android:orientation="horizontal"
+    android:background="@android:color/white"
+    android:orientation="vertical"
     android:padding="@dimen/x25">
 
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_title"
+        <com.git.reny.wallpaper.widget.RatioImageView
+            android:id="@+id/iv_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:textColor="#333"
-            android:textSize="@dimen/x50"
-            android:textStyle="bold" />
+            android:scaleType="centerCrop"
+            app:base="width"
+            app:height_ratio="911"
+            app:width_ratio="1619" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/tv_step"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/y30"
+            android:paddingLeft="@dimen/x40"
+            android:paddingTop="@dimen/y20"
+            android:paddingRight="@dimen/x40"
+            android:paddingBottom="@dimen/y20"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/x40"
+            app:rv_backgroundColor="#aa000000"
+            app:rv_cornerRadius_BR="20dp"
+            app:rv_cornerRadius_TR="20dp"
+            tools:text="第一步" />
 
-            <TextView
-                android:id="@+id/tv_subTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:textColor="#555"
-                android:textSize="@dimen/x32" />
+    </FrameLayout>
 
-        </LinearLayout>
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_marginBottom="@dimen/y10"
+        android:textColor="#333"
+        android:textSize="@dimen/x42"
+        tools:text="第一步:fldsalfsjadfljsa;if" />
 
-    <com.git.reny.wallpaper.widget.RatioImageView
-        android:id="@+id/iv_img"
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginLeft="@dimen/x25"
-        android:scaleType="centerCrop"
-        app:base="height"
-        app:height_ratio="54"
-        app:width_ratio="76" />
 
 </LinearLayout>

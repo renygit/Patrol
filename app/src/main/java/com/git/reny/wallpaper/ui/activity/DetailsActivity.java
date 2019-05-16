@@ -15,6 +15,7 @@ import com.git.reny.wallpaper.core.BaseActivity;
 import com.git.reny.wallpaper.entity.response.HomeRecommendDetails;
 import com.git.reny.wallpaper.presenter.DetailsPresenter;
 import com.git.reny.wallpaper.ui.adapter.MaterialListAdapter;
+import com.git.reny.wallpaper.ui.adapter.StepListAdapter;
 import com.git.reny.wallpaper.ui.mvp.DetailsView;
 import com.git.reny.wallpaper.utils.CommonUtils;
 import com.git.reny.wallpaper.utils.glide.GlideHelper;
@@ -52,8 +53,8 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> implements D
     RecyclerView rvMaterial;
     @BindView(R.id.rv_step)
     RecyclerView rvStep;
-    @BindView(R.id.tv_tip)
-    TextView tvTip;
+    @BindView(R.id.tv_tips)
+    TextView tvTips;
 
     private String ids;
 
@@ -112,8 +113,13 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> implements D
         rvMaterial.addItemDecoration(new HDividerFull());
         rvMaterial.setAdapter(materialListAdapter);
 
+        StepListAdapter stepListAdapter = new StepListAdapter(data.getStepList());
+        CommonUtils.initRecyclerView(rvStep);
+        rvStep.setAdapter(stepListAdapter);
+
         if(!CommonUtils.isEmpty(data.getTipList())) {
-            tvTip.setText(data.getTipList().get(0).getDetails());
+            ToastUtils.showLong(data.getTipList().get(0).getDetails());
+            tvTips.setText(data.getTipList().get(0).getDetails());
         }
     }
 

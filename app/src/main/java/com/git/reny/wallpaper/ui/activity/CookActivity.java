@@ -1,5 +1,6 @@
 package com.git.reny.wallpaper.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import com.flyco.roundview.RoundLinearLayout;
 import com.flyco.roundview.RoundTextView;
 import com.git.reny.wallpaper.R;
 import com.git.reny.wallpaper.core.BaseActivity;
+import com.git.reny.wallpaper.entity.other.ImgsInfo;
 import com.git.reny.wallpaper.entity.response.CookBean;
 import com.git.reny.wallpaper.entity.response.IdBean;
 import com.git.reny.wallpaper.entity.response.ReplyList;
@@ -124,8 +126,9 @@ public class CookActivity extends BaseActivity<CookPresenter> implements CookVie
             }
             rollView.setAdapter(new ImgsLoopAdapter(rollView, imgUrls));
             rollView.setOnItemClickListener(position -> {
-                //WebActivity.open(getActivity(), bannerlist.get(position).getBanner_link(), bannerlist.get(position).getBanner_title(), null);
-                //ToastUtils.showLong(bannerlist.get(position).getBanner_link());
+                Intent intent = new Intent(getActivity(), ImagesActivity.class);
+                intent.putExtra(ImgsInfo.KEY, new ImgsInfo(imgUrls, position));
+                startActivity(intent);
             });
 
             if (cookBean.getImgs().size() == 1) {

@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.git.reny.wallpaper.R;
 import com.git.reny.wallpaper.entity.response.CookBean;
+import com.git.reny.wallpaper.entity.response.IdBean;
 import com.git.reny.wallpaper.ui.activity.CookActivity;
 import com.git.reny.wallpaper.utils.BitmapUtils;
 import com.git.reny.wallpaper.utils.CommonUtils;
@@ -34,6 +35,7 @@ public class CardAdapter extends BaseQuickAdapter<CookBean, BaseViewHolder> {
         helper.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(mContext, CookActivity.class);
             intent.putExtra(CookBean.class.getSimpleName(), item);
+            intent.putExtra(IdBean.class.getSimpleName(), item.get_id());
             mContext.startActivity(intent);
         });
     }
