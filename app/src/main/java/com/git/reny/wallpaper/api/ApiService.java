@@ -7,8 +7,11 @@ import com.git.reny.wallpaper.entity.response.HomeRecommend;
 import com.git.reny.wallpaper.entity.response.HomeRecommendDetails;
 import com.git.reny.wallpaper.entity.response.HomeRecommendList;
 import com.git.reny.wallpaper.entity.response.ListResults;
+import com.git.reny.wallpaper.entity.response.QiniuToken;
 import com.git.reny.wallpaper.entity.response.ReplyList;
 import com.git.reny.wallpaper.entity.response.UserData;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -43,9 +46,11 @@ public interface ApiService {
     Observable<HomeList> getCollectList(@Query("userId")String userId, @Query("page_size")int page_size, @Query("page")int page);
 
 
+    @GET("token")
+    Observable<QiniuToken> getToken(@Query("file_size")int file_size);
 
     @GET("upload")
-    Observable<Object> upload(@Query("userId")String userId, @Query("title")String title, @Query("content")String content, @Query("imgs[]")String[] imgs);
+    Observable<Object> upload(@Query("userId")String userId, @Query("title")String title, @Query("content")String content, @Query("imgs[]")List<String> imgs);
 
     @GET("cook/getlist")
     Observable<CookList> getCookList(@Query("page_size")int page_size, @Query("page")int page);

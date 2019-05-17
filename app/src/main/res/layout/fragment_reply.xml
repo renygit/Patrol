@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.renygit.multistateview.MultiStateView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/msv"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/status_bg"
-    app:msv_tipEmpty="没有相关互动">
+    android:layout_height="match_parent">
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/srl"
+    <com.renygit.multistateview.MultiStateView
+        android:id="@+id/msv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/status_bg"
+        app:msv_tipEmpty="没有相关互动">
 
-        <com.renygit.scrolltoplib.AutoScrollBackLayout
-            android:id="@+id/scroll_layout"
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/srl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <com.renygit.scrolltoplib.NestedScrollViewEx
+            <com.renygit.scrolltoplib.AutoScrollBackLayout
+                android:id="@+id/scroll_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout
+                <com.renygit.scrolltoplib.NestedScrollViewEx
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:descendantFocusability="blocksDescendants"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
-                    <recycler.coverflow.RecyclerCoverFlow
-                        android:id="@+id/rv_recommend"
-                        android:layout_width="match_parent"
-                        android:layout_height="280dp" />
-
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/rv_list"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/white" />
+                        android:descendantFocusability="blocksDescendants"
+                        android:orientation="vertical">
 
-                </LinearLayout>
-            </com.renygit.scrolltoplib.NestedScrollViewEx>
-        </com.renygit.scrolltoplib.AutoScrollBackLayout>
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+                        <recycler.coverflow.RecyclerCoverFlow
+                            android:id="@+id/rv_recommend"
+                            android:layout_width="match_parent"
+                            android:layout_height="280dp" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white" />
+
+                    </LinearLayout>
+                </com.renygit.scrolltoplib.NestedScrollViewEx>
+            </com.renygit.scrolltoplib.AutoScrollBackLayout>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    </com.renygit.multistateview.MultiStateView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_upload"
@@ -51,4 +57,4 @@
         android:layout_margin="5dp"
         android:src="@drawable/ic_add_white" />
 
-</com.renygit.multistateview.MultiStateView>
+</FrameLayout>

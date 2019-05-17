@@ -29,7 +29,7 @@ public class CardAdapter extends BaseQuickAdapter<CookBean, BaseViewHolder> {
     protected void convert(BaseViewHolder helper, CookBean item) {
         if(!CommonUtils.isEmpty(item.getImgs())) {
             helper.getView(R.id.iv_img).setTag(item.getImgs().get(0));
-            GlideHelper.disPlayRound(helper.getView(R.id.iv_img), BitmapUtils.base64ToBitmap(item.getImgs().get(0)), radius, true);
+            GlideHelper.disPlayRound(helper.getView(R.id.iv_img), BitmapUtils.getImgUrl(item.getImgs().get(0)), radius, true);
         }
         helper.setText(R.id.tv_title, item.getTitle());
         helper.itemView.setOnClickListener(v -> {

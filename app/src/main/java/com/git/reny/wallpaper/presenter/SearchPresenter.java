@@ -34,7 +34,7 @@ public class SearchPresenter extends BasePresenter<SearchView> {
 
     @Override
     public void loadData(boolean isRefresh) {
-        addDisposable(ServiceHelper.getApi().getInfoList(keyWord, pageSize, isRefresh ? 1 : page)
+        addDisposable(ServiceHelper.getApi().getSearchList(keyWord, pageSize, isRefresh ? 1 : page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableCall<HomeList>(this) {

@@ -1,15 +1,15 @@
 package com.git.reny.wallpaper.presenter;
 
-import android.graphics.BitmapFactory;
-
 import com.git.reny.wallpaper.core.BasePresenter;
 import com.git.reny.wallpaper.core.DisCall;
 import com.git.reny.wallpaper.core.ServiceHelper;
+import com.git.reny.wallpaper.entity.other.QiniuImgs;
+import com.git.reny.wallpaper.entity.response.QiniuToken;
 import com.git.reny.wallpaper.entity.response.UserData;
 import com.git.reny.wallpaper.ui.mvp.UploadView;
-import com.git.reny.wallpaper.utils.BitmapUtils;
 import com.git.reny.wallpaper.utils.FileUtils;
 import com.git.reny.wallpaper.utils.PicUtils;
+import com.git.reny.wallpaper.utils.QiNiuUtils;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.zyctd.mvplib.utils.AppUtils;
 import com.zyctd.mvplib.utils.LogUtils;
@@ -34,8 +34,6 @@ public class UploadPresenter extends BasePresenter<UploadView> {
     }
 
     public void publish(String title, String content, List<LocalMedia> imgSelectList) {
-        AppUtils.self().showLoading(getActivity(), false);
-
         List<File> files = new ArrayList<>(imgSelectList.size());
         for (LocalMedia media : imgSelectList) {
             if(null != media) {
@@ -50,6 +48,7 @@ public class UploadPresenter extends BasePresenter<UploadView> {
     }
 
     private void compressImgList(String title, String content, List<File> imgList){
+        AppUtils.self().showLoading(getActivity(), false);
         addDisposable(Flowable.just(imgList)
                 .observeOn(Schedulers.io())
                 .map(list -> Luban.with(getActivity()).setTargetDir(FileUtils.getDownLoadPath(null)).load(list).get())
@@ -70,11 +69,48 @@ public class UploadPresenter extends BasePresenter<UploadView> {
     }
 
     private void uploadFiles(String title, String content, List<File> imgList){
-        String[] imgBase64Arr = new String[imgList.size()];
+        /*String[] imgBase64Arr = new String[imgList.size()];
         for (int i = 0; i < imgList.size(); i++) {
             imgBase64Arr[i] = BitmapUtils.bitmapToBase64(BitmapFactory.decodeFile(imgList.get(i).getAbsolutePath()));
-        }
-        addDisposable(ServiceHelper.getApi().upload(UserData.getUserId(), title, content, imgBase64Arr)
+        }*/
+        AppUtils.self().showLoading(getActivity(), false);
+        addDisposable(ServiceHelper.getApi().getToken(imgList.size())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisCall<QiniuToken>() {
+                    @Override
+                    public void onSuc(QiniuToken data) {
+                        AppUtils.self().showLoading(getActivity(), false);
+                        List<QiniuImgs> qiniuImgs = new ArrayList<>(imgList.size());
+                        for (int i = 0; i < imgList.size(); i++) {
+                            qiniuImgs.add(new QiniuImgs(imgList.get(i).getAbsolutePath(), data.getKeys().get(i), data.getTokens().get(i)));
+                        }
+
+                        QiNiuUtils.putImgs(qiniuImgs, new QiNiuUtils.QiNiuCallback() {
+                            @Override
+                            public void onSuccess(List<String> picUrls) {
+                                //LogUtils.e(GsonSingleton.gson.toJson(picUrls));
+                                saveData(title, content, picUrls);
+                            }
+
+                            @Override
+                            public void onError(String msg) {
+                                AppUtils.self().hideLoading();
+                                ToastUtils.showLong(msg);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onErr(Throwable e) {
+                        ToastUtils.showLong(e.getMessage());
+                    }
+                })
+        );
+    }
+
+    private void saveData(String title, String content, List<String> picUrls){
+        addDisposable(ServiceHelper.getApi().upload(UserData.getUserId(), title, content, picUrls)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisCall<Object>() {

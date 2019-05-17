@@ -28,7 +28,7 @@ public class CookListAdapter extends BaseQuickAdapter<CookBean, BaseViewHolder> 
         helper.setVisible(R.id.iv_img, item.getImgs().size() > 0);
         if (item.getImgs().size() > 0) {
             helper.getView(R.id.iv_img).setTag(item.getImgs().get(0));
-            GlideHelper.disPlayRound(helper.getView(R.id.iv_img), BitmapUtils.base64ToBitmap(item.getImgs().get(0)), 20, true);
+            GlideHelper.disPlayRound(helper.getView(R.id.iv_img), BitmapUtils.getImgUrl(item.getImgs().get(0)), 20, true);
         }
         helper.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(mContext, CookActivity.class);

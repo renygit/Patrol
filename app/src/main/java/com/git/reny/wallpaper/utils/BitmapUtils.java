@@ -1,11 +1,6 @@
 package com.git.reny.wallpaper.utils;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.util.Base64;
-
-import java.io.ByteArrayOutputStream;
+import com.git.reny.wallpaper.api.APIConfig;
 
 /**
  * Created by admin on 2017/7/5.
@@ -13,7 +8,11 @@ import java.io.ByteArrayOutputStream;
 
 public class BitmapUtils {
 
-    public static String bitmapToBase64(Bitmap bitmap) {
+    public static String getImgUrl(String fileName){
+        return APIConfig.QINIU_HOST_IMG + fileName;
+    }
+
+    /*public static String bitmapToBase64(Bitmap bitmap) {
         // 将Bitmap转换成Base64字符串
         ByteArrayOutputStream bStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bStream);
@@ -32,6 +31,6 @@ public class BitmapUtils {
         // 将base64格式字符串还原成byte数组
         byte[] data = Base64.decode(imgString.getBytes(), Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(data, 0, data.length);
-    }
+    }*/
 
 }

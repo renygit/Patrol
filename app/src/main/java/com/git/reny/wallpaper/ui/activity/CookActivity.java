@@ -1,7 +1,6 @@
 package com.git.reny.wallpaper.ui.activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -120,9 +119,9 @@ public class CookActivity extends BaseActivity<CookPresenter> implements CookVie
         if (!CommonUtils.isEmpty(cookBean.getImgs())) {
             rollView.setVisibility(View.VISIBLE);
 
-            List<Bitmap> imgUrls = new ArrayList<>(cookBean.getImgs().size());
+            List<String> imgUrls = new ArrayList<>(cookBean.getImgs().size());
             for (int i = 0; i < cookBean.getImgs().size(); i++) {
-                imgUrls.add(BitmapUtils.base64ToBitmap(cookBean.getImgs().get(i)));
+                imgUrls.add(BitmapUtils.getImgUrl(cookBean.getImgs().get(i)));
             }
             rollView.setAdapter(new ImgsLoopAdapter(rollView, imgUrls));
             rollView.setOnItemClickListener(position -> {
