@@ -155,10 +155,12 @@ public class CookActivity extends BaseActivity<CookPresenter> implements CookVie
     @Override
     public void setData(boolean isRefresh, ReplyList data) {
         if (null == adapter) {
-            adapter = new ReplyListAdapter(data.getListData());
-            CommonUtils.initRecyclerView(rv, new LinearLayoutManager(getActivity()));
-            rv.addItemDecoration(new HDivider25Padding());
-            rv.setAdapter(adapter);
+            if(!CommonUtils.isEmpty(data.getListData())) {
+                adapter = new ReplyListAdapter(data.getListData());
+                CommonUtils.initRecyclerView(rv, new LinearLayoutManager(getActivity()));
+                rv.addItemDecoration(new HDivider25Padding());
+                rv.setAdapter(adapter);
+            }
         } else {
             if (isRefresh) {
                 adapter.setNewData(data.getListData());
@@ -171,7 +173,7 @@ public class CookActivity extends BaseActivity<CookPresenter> implements CookVie
 
     private void showReplyDialog(){
         if(null == dialogReply) {
-            dialogReply = new ReplyBottomSheetDialog(getActivity(), idBean.get$oid());//回复文章值为0，回复已回复对象值为被回复对象的id
+            dialogReply = new ReplyBottomSheetDialog(getActivity(), idBean.get$oid());
             dialogReply.setCallBack((content, replyId) -> {
                 //不用判断为空 内部已做判断
                 presenter.reply(replyId, content);

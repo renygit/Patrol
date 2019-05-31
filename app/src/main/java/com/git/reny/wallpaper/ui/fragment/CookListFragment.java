@@ -22,6 +22,7 @@ import com.renygit.scrolltoplib.AutoScrollBackLayout;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -47,6 +48,7 @@ public class CookListFragment extends BaseFragment<ReplyPresenter> implements Re
     private CookListAdapter listAdapter;
 
     private int recommandNum = 5;
+    private List<CookBean> listDatas = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -87,7 +89,7 @@ public class CookListFragment extends BaseFragment<ReplyPresenter> implements Re
     @Override
     public void setData(boolean isRefresh, List<CookBean> datas) {
         if (null == listAdapter) {
-            listAdapter = new CookListAdapter(null);
+            listAdapter = new CookListAdapter(listDatas);
             CommonUtils.initRecyclerView(rvList);
             /*rvList.setHasFixedSize(true);
             rvList.setNestedScrollingEnabled(false);
@@ -104,14 +106,16 @@ public class CookListFragment extends BaseFragment<ReplyPresenter> implements Re
                 adapter.setNewData(datas.size() > recommandNum ? datas.subList(0, recommandNum) : datas);
             }
 
+            listDatas.clear();
             if(datas.size() > recommandNum){
                 rvList.setVisibility(View.VISIBLE);
-                listAdapter.setNewData(datas.subList(recommandNum, datas.size()));
+                listDatas.addAll(datas.subList(recommandNum, datas.size()));
             }else {
                 rvList.setVisibility(View.GONE);
             }
+            listAdapter.notifyDataSetChanged();
         }else {
-            listAdapter.addData(datas);
+            listDatas.addAll(datas);
             listAdapter.notifyDataSetChanged();
         }
     }

@@ -110,12 +110,16 @@ public class MyApp extends Application {
         MobclickAgent.startWithConfigure(new MobclickAgent.UMAnalyticsConfig(this, "5a7cf2beb27b0a6b4800003d", channel));
 
 
-        if(!BuildConfig.DEBUG) {
+        /*if(!BuildConfig.DEBUG) {
             ThreadUtils.self().add(() -> Cockroach.install((thread, throwable) -> {
                 //这里捕获全局异常 需要主动上传到友盟错误统计   在友盟错误列表的tab“自定义错误”中才能查看
                 MobclickAgent.reportError(getContext(), throwable);
             }));
-        }
+        }*/
+        ThreadUtils.self().add(() -> Cockroach.install((thread, throwable) -> {
+            //这里捕获全局异常 需要主动上传到友盟错误统计   在友盟错误列表的tab“自定义错误”中才能查看
+            MobclickAgent.reportError(getContext(), throwable);
+        }));
 
 
         //Jzvd.setMediaInterface(new JZMediaIjkplayer());

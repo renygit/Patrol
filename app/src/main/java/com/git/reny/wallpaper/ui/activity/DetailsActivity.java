@@ -118,7 +118,6 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> implements D
         rvStep.setAdapter(stepListAdapter);
 
         if(!CommonUtils.isEmpty(data.getTipList())) {
-            ToastUtils.showLong(data.getTipList().get(0).getDetails());
             tvTips.setText(data.getTipList().get(0).getDetails());
         }
     }
